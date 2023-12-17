@@ -26,29 +26,27 @@ const Navbar = () => {
     }
 
     return (
-        <div>
+        <div className="relative">
             <ToastContainer />
-            <div className="md:px-14 shadow navbar z-10 bg-white fixed left-0 top-0">
+            <div className="absolute z-10 font-semibold text-white bg-black shadow md:px-14 navbar bg-opacity-30">
                 <div className="navbar-start">
                     <details className="dropdown">
                         <summary tabIndex={0} className="btn btn-ghost lg:hidden">
                             <PiListBold className="text-lg" />
                         </summary>
-                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
+                        <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-black">
                             <li><Link to="/">Home</Link></li>
-                            <li><Link to="/toys">All Toys</Link></li>
-                            <li><Link to="/blog">Blog</Link></li>
+                            <li><Link to="/contact">Contact Us</Link></li>
+                            <li><Link to="/dashboard">Dashboard</Link></li>
+                            <li><Link to="/menu">Our Menu</Link></li>
+                            <li><Link to="/shop">Our Shop</Link></li>
                             {
                                 (user) &&
-                                <li tabIndex={0}>
-                                    <details>
-                                        <summary>My Area</summary>
-                                        <ul className="p-2">
-                                            <li><Link to="add-toys">Add Toys</Link></li>
-                                            <li><Link to="my-toys">My Toys</Link></li>
-                                        </ul>
-                                    </details>
-                                </li>
+                                <>
+                                    <li><Link to="/dashboard">Dashboard</Link></li>
+                                    <li><Link to="/menu">Our Menu</Link></li>
+                                    <li><Link to="/shop">Our Shop</Link></li>
+                                </>
                             }
                         </ul>
                     </details>
@@ -59,8 +57,18 @@ const Navbar = () => {
                 <div className="hidden navbar-center lg:flex">
                     <ul className="px-1 menu menu-horizontal z-[1]">
                         <li><Link to="/">Home</Link></li>
-                        <li><Link to="/toys">All Toys</Link></li>
-                        <li><Link to="/blog">Blog</Link></li>
+                        <li><Link to="/contact">Contact Us</Link></li>
+                        <li><Link to="/dashboard">Dashboard</Link></li>
+                        <li><Link to="/menu">Our Menu</Link></li>
+                        <li><Link to="/shop">Our Shop</Link></li>
+                        {
+                            (user) &&
+                            <>
+                                <li><Link to="/dashboard">Dashboard</Link></li>
+                                <li><Link to="/menu">Our Menu</Link></li>
+                                <li><Link to="/shop">Our Shop</Link></li>
+                            </>
+                        }
                     </ul>
                 </div>
                 <div className="navbar-end [&>*]:ml-1 hover:[&>*]:text-red-600">
@@ -100,7 +108,6 @@ const Navbar = () => {
                         </>}
                 </div>
             </div>
-            <br /><br />
         </div>
     );
 };
