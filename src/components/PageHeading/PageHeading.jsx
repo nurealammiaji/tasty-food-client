@@ -5,7 +5,7 @@ const PageHeading = ({ subHeading, heading, background }) => {
         <div className="text-center">
             <div className="relative">
                 <img src={background} className="w-full" alt="" />
-                <div className="absolute top-60 text-white py-20 px-40 right-72 bg-black bg-opacity-40">
+                <div className="absolute px-40 py-20 text-white bg-black top-60 right-64 bg-opacity-40">
                     <h2 className="text-5xl font-bold uppercase">{heading}</h2>
                     <br />
                     <h4 className="font-medium uppercase">{subHeading}</h4>
