@@ -3,12 +3,12 @@
 const PageHeading = ({ subHeading, heading, background }) => {
     return (
         <div className="text-center">
-            <div className="relative">
-                <img src={background} className="w-full" alt="" />
-                <div className="absolute px-40 py-20 text-white bg-black top-60 right-64 bg-opacity-40">
-                    <h2 className="text-5xl font-bold uppercase">{heading}</h2>
-                    <br />
-                    <h4 className="font-medium uppercase">{subHeading}</h4>
+            <div className="hero h-[400px] md:h-[700px]" style={{ backgroundImage: `url(${background})`}}>
+                <div className="text-center text-neutral-content">
+                    <div className="p-5 text-white uppercase bg-black md:py-20 md:px-40 bg-opacity-40">
+                        <h1 className="text-3xl font-bold md:text-5xl md:mb-5">{heading}</h1>
+                        <p className="mt-3 text-sm md:text-lg md:mt-10">{subHeading}</p>
+                    </div>
                 </div>
             </div>
         </div>
