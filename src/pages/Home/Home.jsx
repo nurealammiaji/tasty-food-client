@@ -1,6 +1,7 @@
 import SectionHeading from "../../components/SectionHeading/SectionHeading";
 import Slider from "./Slider";
 import Menu from './Menu';
+import MidBanner from './MidBanner';
 
 const Home = () => {
     return (
@@ -11,7 +12,8 @@ const Home = () => {
             } heading={"ORDER ONLINE"}></SectionHeading>
             <br /><br />
             <Menu></Menu>
-            <br />
+            <br /><br />
+            <MidBanner></MidBanner>
         </div>
     );
 };

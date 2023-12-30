@@ -12,10 +12,11 @@ import 'swiper/css/pagination';
 const Menu = () => {
 
     const [dishes, setDishes] = useState(null);
-    const [soup, setSoup] = useState(null);
-    const [salad, setSalad] = useState(null);
-    const [pizza, setPizza] = useState(null);
-    const [dessert, setDessert] = useState(null);
+    const [soups, setSoups] = useState(null);
+    const [salads, setSalads] = useState(null);
+    const [pizzas, setPizzas] = useState(null);
+    const [desserts, setDesserts] = useState(null);
+    const [drinks, setDrinks] = useState(null);
 
     useEffect(() => {
         fetch('menu.json')
@@ -26,13 +27,15 @@ const Menu = () => {
     useEffect(() => {
         if (dishes) {
             const salad = dishes.filter(dish => dish.category === "salad");
-            setSalad(salad);
+            setSalads(salad);
             const pizza = dishes.filter(dish => dish.category === "pizza");
-            setPizza(pizza);
+            setPizzas(pizza);
             const soup = dishes.filter(dish => dish.category === "soup");
-            setSoup(soup);
+            setSoups(soup);
             const dessert = dishes.filter(dish => dish.category === "dessert");
-            setDessert(dessert);
+            setDesserts(dessert);
+            const drink = dishes.filter(dish => dish.category === "drink");
+            setDrinks(drink);
         }
     }, [dishes])
 
@@ -51,15 +54,15 @@ const Menu = () => {
                     },
                     '@0.75': {
                         slidesPerView: 2,
-                        spaceBetween: 20,
+                        spaceBetween: 10,
                     },
                     '@1.00': {
                         slidesPerView: 3,
-                        spaceBetween: 40,
+                        spaceBetween: 10,
                     },
                     '@1.50': {
                         slidesPerView: 4,
-                        spaceBetween: 50,
+                        spaceBetween: 10,
                     },
                 }}
                 modules={[Pagination]}
@@ -68,25 +71,25 @@ const Menu = () => {
                 <SwiperSlide>
                     <div className="hero">
                         <img src={slide1} alt="" />
-                        <h3 className="text-3xl text-white mt-80 hero-content">Salad</h3>
+                        <h3 className="text-3xl text-white mt-80 hero-content">Salads</h3>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="hero">
                         <img src={slide2} alt="" />
-                        <h3 className="text-3xl text-white mt-80 hero-content">Pizza</h3>
+                        <h3 className="text-3xl text-white mt-80 hero-content">Pizzas</h3>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="hero">
                         <img src={slide3} alt="" />
-                        <h3 className="text-3xl text-white mt-80 hero-content">Soup</h3>
+                        <h3 className="text-3xl text-white mt-80 hero-content">Soups</h3>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>
                     <div className="hero">
                         <img src={slide4} alt="" />
-                        <h3 className="text-3xl text-white mt-80 hero-content">Dessert</h3>
+                        <h3 className="text-3xl text-white mt-80 hero-content">Desserts</h3>
                     </div>
                 </SwiperSlide>
                 <SwiperSlide>

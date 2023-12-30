@@ -28,7 +28,7 @@ const Navbar = () => {
     return (
         <div className="relative">
             <ToastContainer />
-            <div className="absolute z-10 font-semibold text-white bg-black shadow md:px-14 navbar bg-opacity-30">
+            <div className="fixed z-10 font-semibold text-white bg-black shadow px-auto navbar bg-opacity-30">
                 <div className="navbar-start">
                     <details className="dropdown">
                         <summary tabIndex={0} className="btn btn-ghost lg:hidden">
