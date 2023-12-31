@@ -4,9 +4,9 @@ import SectionHeading from "../../components/SectionHeading/SectionHeading";
 const MidSection = () => {
     return (
         <div className="text-center ">
-            <div className="w-11/12 mx-auto hero" style={{ background: `url(${sectionBG}) center fixed no-repeat` }}>
+            <div className="hero" style={{ background: `url(${sectionBG}) center fixed no-repeat` }}>
                 <div className="hero-overlay bg-opacity-70"></div>
-                <div className="text-white">
+                <div className="p-10 text-white">
                     <SectionHeading subHeading={"Check it out"} heading={"From Our Menu"}></SectionHeading>
                     <br /><br />
                     <div className="items-center justify-center flex-none gap-5 md:flex">
