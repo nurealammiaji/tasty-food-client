@@ -9,7 +9,7 @@ import { Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/pagination';
 
-const Menu = () => {
+const MenuCard = () => {
 
     const [dishes, setDishes] = useState(null);
     const [soups, setSoups] = useState(null);
@@ -40,7 +40,7 @@ const Menu = () => {
     }, [dishes])
 
     return (
-        <div>
+        <div className="w-11/12 mx-auto">
             <Swiper
                 slidesPerView={4}
                 spaceBetween={10}
@@ -103,4 +103,4 @@ const Menu = () => {
     );
 };
 
-export default Menu;
+export default MenuCard;
