@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import MenuItem from "./MenuItem";
 import { Link } from "react-router-dom";
 import FoodCard from "./FoodCard";
+import MidSection from "./MidSection";
 
 
 const Home = () => {
@@ -35,8 +36,8 @@ const Home = () => {
                     (menu) &&
                     menu.splice(0, 6).map(menu => <MenuItem key={menu._id} menu={menu}></MenuItem>)
                 }
+                <br />
             </div>
-            <br />
             <div className="text-center">
                 <Link to="/menu">
                     <button className="p-3 uppercase border-b-2 border-black rounded-lg hover:btn-outline">View Full Menu</button>
@@ -54,7 +55,12 @@ const Home = () => {
                     (menu) &&
                     menu.slice(0,3).map(food => <FoodCard key={food._id} food={food}></FoodCard>)
                 }
+                <br /><br />
             </div>
+            <MidSection></MidSection>
+            <br /><br />
+            <SectionHeading subHeading={"Should Try"} heading={"Chef Recommends"}></SectionHeading>
+            <br /><br />
         </div>
     );
 };
