@@ -8,9 +8,9 @@ const Error = () => {
     console.error(error);
 
     return (
-        <div className="text-center">
+        <div className="w-screen text-center">
             <div>
-                <img src={image} className="mx-auto w-full md:w-4/12" alt="Error Image" />
+                <img src={image} className="w-full mx-auto md:w-4/12" alt="Error Image" />
             </div>
             {
                 (error?.status === 404) &&

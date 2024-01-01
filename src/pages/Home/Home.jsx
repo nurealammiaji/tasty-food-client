@@ -7,6 +7,7 @@ import MenuItem from "./MenuItem";
 import { Link } from "react-router-dom";
 import FoodCard from "./FoodCard";
 import MidSection from "./MidSection";
+import Reviews from "./Reviews";
 
 
 const Home = () => {
@@ -59,8 +60,9 @@ const Home = () => {
             </div>
             <MidSection></MidSection>
             <br /><br />
-            <SectionHeading subHeading={"Should Try"} heading={"Chef Recommends"}></SectionHeading>
+            <SectionHeading subHeading={"What Our Clients Say"} heading={"Testimonials"}></SectionHeading>
             <br /><br />
+            <Reviews></Reviews>
         </div>
     );
 };
