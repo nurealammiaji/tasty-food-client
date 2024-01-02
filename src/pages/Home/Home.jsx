@@ -3,11 +3,11 @@ import Slider from "./Slider";
 import MenuCard from "./MenuCard";
 import MidBanner from './MidBanner';
 import { useEffect, useState } from "react";
-import MenuItem from "./MenuItem";
 import { Link } from "react-router-dom";
-import FoodCard from "./FoodCard";
 import MidSection from "./MidSection";
 import Reviews from "./Reviews";
+import MenuItem from "../../components/MenuItem/MenuItem";
+import FoodCard from '../../components/FoodCard/FoodCard';
 
 
 const Home = () => {
