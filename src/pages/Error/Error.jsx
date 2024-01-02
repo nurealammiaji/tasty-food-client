@@ -1,6 +1,7 @@
 import { Link, useRouteError } from "react-router-dom";
 import image from "../../assets/404.gif";
 import { PiArrowLeftBold } from "react-icons/pi";
+import { Helmet } from "react-helmet-async";
 
 const Error = () => {
 
@@ -9,6 +10,9 @@ const Error = () => {
 
     return (
         <div className="w-screen text-center">
+            <Helmet>
+                <title>Error || Tasty Food</title>
+            </Helmet>
             <div>
                 <img src={image} className="w-full mx-auto md:w-4/12" alt="Error Image" />
             </div>

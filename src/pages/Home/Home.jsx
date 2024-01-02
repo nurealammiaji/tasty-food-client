@@ -8,6 +8,7 @@ import MidSection from "./MidSection";
 import Reviews from "./Reviews";
 import MenuItem from "../../components/MenuItem/MenuItem";
 import FoodCard from '../../components/FoodCard/FoodCard';
+import { Helmet } from "react-helmet-async";
 
 
 const Home = () => {
@@ -22,6 +23,9 @@ const Home = () => {
 
     return (
         <div>
+            <Helmet>
+                <title>Home || Tasty Food</title>
+            </Helmet>
             <Slider></Slider>
             <br /><br />
             <SectionHeading subHeading={"From 11:00am to 10:00pm"
@@ -54,7 +58,7 @@ const Home = () => {
             <div className="grid w-11/12 gap-10 mx-auto md:grid-cols-3">
                 {
                     (menu) &&
-                    menu.slice(0,3).map(food => <FoodCard key={food._id} food={food}></FoodCard>)
+                    menu.slice(0, 3).map(food => <FoodCard key={food._id} food={food}></FoodCard>)
                 }
                 <br /><br />
             </div>
