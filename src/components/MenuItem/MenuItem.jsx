@@ -1,8 +1,8 @@
 
 
-const MenuItem = ({ menu }) => {
+const MenuItem = ({ item }) => {
 
-    const { image, name, recipe, price } = menu;
+    const { image, name, recipe, price } = item;
 
     return (
         <div className="flex gap-5">
