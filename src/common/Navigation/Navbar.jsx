@@ -36,18 +36,10 @@ const Navbar = () => {
                         </summary>
                         <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52 text-black">
                             <li><Link to="/">Home</Link></li>
-                            <li><Link to="/contact">Contact Us</Link></li>
-                            <li><Link to="/dashboard">Dashboard</Link></li>
                             <li><Link to="/menu">Our Menu</Link></li>
                             <li><Link to="/shop">Our Shop</Link></li>
-                            {
-                                (user) &&
-                                <>
-                                    <li><Link to="/dashboard">Dashboard</Link></li>
-                                    <li><Link to="/menu">Our Menu</Link></li>
-                                    <li><Link to="/shop">Our Shop</Link></li>
-                                </>
-                            }
+                            <li><Link to="/contact">Contact Us</Link></li>
+                            <li><Link to="/dashboard">Dashboard</Link></li>
                         </ul>
                     </details>
                     <Link to="/">
@@ -57,18 +49,10 @@ const Navbar = () => {
                 <div className="hidden navbar-center lg:flex">
                     <ul className="px-1 menu menu-horizontal z-[1]">
                         <li><Link to="/">Home</Link></li>
-                        <li><Link to="/contact">Contact Us</Link></li>
-                        <li><Link to="/dashboard">Dashboard</Link></li>
                         <li><Link to="/menu">Our Menu</Link></li>
                         <li><Link to="/shop">Our Shop</Link></li>
-                        {
-                            (user) &&
-                            <>
-                                <li><Link to="/dashboard">Dashboard</Link></li>
-                                <li><Link to="/menu">Our Menu</Link></li>
-                                <li><Link to="/shop">Our Shop</Link></li>
-                            </>
-                        }
+                        <li><Link to="/contact">Contact Us</Link></li>
+                        <li><Link to="/dashboard">Dashboard</Link></li>
                     </ul>
                 </div>
                 <div className="navbar-end [&>*]:ml-1 hover:[&>*]:text-red-600">
