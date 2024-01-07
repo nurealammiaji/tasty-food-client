@@ -38,6 +38,17 @@ const OurShop = () => {
         }
     }, [menu]);
 
+    const spinner = <>
+        <div className="text-center">
+            <br />
+            <p className="flex items-center justify-center gap-3 font-semibold text-red-600">
+                <span className="loading loading-spinner"></span>
+                Loading ...
+            </p>
+            <br /><br />
+        </div>
+    </>
+
     return (
         <div>
             <Helmet>
@@ -54,27 +65,41 @@ const OurShop = () => {
                         <Tab>Desserts</Tab>
                         <Tab>Drinks</Tab>
                     </TabList>
-
+                    <br /><br />
                     <TabPanel>
                         {
-                            (menu && salads) &&
-                            <ShopCards items={salads}></ShopCards>
+                            (menu && salads) ?
+                                <ShopCards items={salads}></ShopCards> :
+                                spinner
                         }
                     </TabPanel>
                     <TabPanel>
-                        <h2>Any content 2</h2>
+                        {
+                            (menu && pizzas) ?
+                                <ShopCards items={pizzas}></ShopCards> :
+                                spinner
+                        }
                     </TabPanel>
                     <TabPanel>
-                        <h2>Any content 3</h2>
+                        {
+                            (menu && soups) ?
+                                <ShopCards items={soups}></ShopCards> :
+                                spinner
+                        }
                     </TabPanel>
                     <TabPanel>
-                        <h2>Any content 4</h2>
+                        {
+                            (menu && desserts) ?
+                                <ShopCards items={desserts}></ShopCards> :
+                                spinner
+                        }
                     </TabPanel>
                     <TabPanel>
-                        <h2>Any content 5</h2>
-                    </TabPanel>
-                    <TabPanel>
-                        <h2>Any content 6</h2>
+                        {
+                            (menu && drinks) ?
+                                <ShopCards items={drinks}></ShopCards> :
+                                spinner
+                        }
                     </TabPanel>
                 </Tabs>
             </div>

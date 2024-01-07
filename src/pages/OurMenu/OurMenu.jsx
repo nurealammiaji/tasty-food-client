@@ -14,7 +14,7 @@ import soupBG from '../../assets/menu/soup-bg.jpg';
 const OurMenu = () => {
 
     const [menu] = useMenu();
-    const [popular, setPopular] = useState();
+    const [offered, setOffered] = useState();
     const [salads, setSalads] = useState();
     const [pizzas, setPizzas] = useState();
     const [soups, setSoups] = useState();
@@ -24,8 +24,8 @@ const OurMenu = () => {
 
     useEffect(() => {
         if (menu) {
-            const popularItems = menu.filter(item => item.category === "popular");
-            setPopular(popularItems);
+            const offeredItems = menu.filter(item => item.category === "offered");
+            setOffered(offeredItems);
             const saladItems = menu.filter(item => item.category === "salad");
             setSalads(saladItems);
             const pizzaItems = menu.filter(item => item.category === "pizza");
@@ -37,7 +37,18 @@ const OurMenu = () => {
             const drinkItems = menu.filter(item => item.category === "drinks");
             setDrinks(drinkItems);
         }
-    }, [menu])
+    }, [menu]);
+
+    const spinner = <>
+        <div className="text-center">
+            <br />
+            <p className="flex items-center justify-center gap-3 font-semibold text-red-600">
+                <span className="loading loading-spinner"></span>
+                Loading ...
+            </p>
+            <br /><br />
+        </div>
+    </>
 
     return (
         <div>
@@ -51,25 +62,17 @@ const OurMenu = () => {
                 <SectionHeading subHeading={"Don't Miss"} heading={"Today's Offer"}></SectionHeading>
                 <br /><br />
                 {
-                    (menu && popular) ?
+                    (menu && offered) ?
                         <div className='grid w-11/12 gap-10 mx-auto md:grid-cols-2'>
                             {
-                                (popular) &&
-                                popular.map(item => <MenuItem key={item._id} item={item}></MenuItem>)
+                                (offered) &&
+                                offered.map(item => <MenuItem key={item._id} item={item}></MenuItem>)
                             }
-                        </div> :
-                        <div className="text-center">
-                            <br />
-                            <p className="flex items-center justify-center gap-3 font-semibold text-red-600">
-                                <span className="loading loading-spinner"></span>
-                                Loading ...
-                            </p>
-                            <br /><br />
-                        </div>
+                        </div> : spinner
                 }
                 <br /><br />
                 <div className="text-center">
-                    <Link to="">
+                    <Link to="/shop">
                         <button className="p-3 uppercase border-b-2 border-black rounded-lg hover:btn-outline">Order Your Favorite Food</button>
                     </Link>
                 </div>
@@ -86,19 +89,11 @@ const OurMenu = () => {
                                 (desserts) &&
                                 desserts.map(item => <MenuItem key={item._id} item={item}></MenuItem>)
                             }
-                        </div> :
-                        <div className="text-center">
-                            <br />
-                            <p className="flex items-center justify-center gap-3 font-semibold text-red-600">
-                                <span className="loading loading-spinner"></span>
-                                Loading ...
-                            </p>
-                            <br /><br />
-                        </div>
+                        </div> : spinner
                 }
                 <br /><br />
                 <div className="text-center">
-                    <Link to="">
+                    <Link to="/shop">
                         <button className="p-3 uppercase border-b-2 border-black rounded-lg hover:btn-outline">Order Your Favorite Food</button>
                     </Link>
                 </div>
@@ -115,19 +110,11 @@ const OurMenu = () => {
                                 (pizzas) &&
                                 pizzas.map(item => <MenuItem key={item._id} item={item}></MenuItem>)
                             }
-                        </div> :
-                        <div className="text-center">
-                            <br />
-                            <p className="flex items-center justify-center gap-3 font-semibold text-red-600">
-                                <span className="loading loading-spinner"></span>
-                                Loading ...
-                            </p>
-                            <br /><br />
-                        </div>
+                        </div> : spinner
                 }
                 <br /><br />
                 <div className="text-center">
-                    <Link to="">
+                    <Link to="/shop">
                         <button className="p-3 uppercase border-b-2 border-black rounded-lg hover:btn-outline">Order Your Favorite Food</button>
                     </Link>
                 </div>
@@ -144,19 +131,11 @@ const OurMenu = () => {
                                 (salads) &&
                                 salads.map(item => <MenuItem key={item._id} item={item}></MenuItem>)
                             }
-                        </div> :
-                        <div className="text-center">
-                            <br />
-                            <p className="flex items-center justify-center gap-3 font-semibold text-red-600">
-                                <span className="loading loading-spinner"></span>
-                                Loading ...
-                            </p>
-                            <br /><br />
-                        </div>
+                        </div> : spinner
                 }
                 <br /><br />
                 <div className="text-center">
-                    <Link to="">
+                    <Link to="/shop">
                         <button className="p-3 uppercase border-b-2 border-black rounded-lg hover:btn-outline">Order Your Favorite Food</button>
                     </Link>
                 </div>
@@ -173,15 +152,7 @@ const OurMenu = () => {
                                 (soups) &&
                                 soups.map(item => <MenuItem key={item._id} item={item}></MenuItem>)
                             }
-                        </div> :
-                        <div className="text-center">
-                            <br />
-                            <p className="flex items-center justify-center gap-3 font-semibold text-red-600">
-                                <span className="loading loading-spinner"></span>
-                                Loading ...
-                            </p>
-                            <br /><br />
-                        </div>
+                        </div> : spinner
                 }
                 <br /><br />
                 <div className="text-center">

@@ -59,7 +59,7 @@ const Home = () => {
             }
             <div className="text-center">
                 <Link to="/menu">
-                    <button className="p-3 uppercase border-b-2 border-black rounded-lg hover:btn-outline">View Full Menu</button>
+                    <button className="p-3 uppercase border-b-2 rounded-lg border-slate-800 hover:bg-slate-800 hover:text-white">View Full Menu</button>
                 </Link>
             </div>
             <br /><br />

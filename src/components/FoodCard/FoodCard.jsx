@@ -2,10 +2,11 @@
 
 const FoodCard = ({ item }) => {
 
-    const { name, image, recipe } = item;
+    const { name, image, recipe, price } = item;
 
     return (
-        <div className="w-full shadow-xl bg-base-100">
+        <div className="relative w-full shadow-xl bg-base-100">
+            <p className="absolute px-5 py-2 font-semibold text-white right-5 top-5 bg-slate-800">$ {price}</p>
             <figure>
                 <img src={image} alt="food picture" className="w-full" />
             </figure>
