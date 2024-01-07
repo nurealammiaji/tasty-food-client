@@ -74,7 +74,7 @@ const Home = () => {
                     <div className="grid w-11/12 gap-10 mx-auto md:grid-cols-3">
                         {
                             (menu) &&
-                            menu.slice(0, 3).map(food => <FoodCard key={food._id} food={food}></FoodCard>)
+                            menu.slice(0, 3).map(item => <FoodCard key={item._id} item={item}></FoodCard>)
                         }
                         <br /><br />
                     </div> :
