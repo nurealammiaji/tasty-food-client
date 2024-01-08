@@ -50,6 +50,10 @@ const OurMenu = () => {
         </div>
     </>
 
+    const orderButton = <>
+        <button className="p-3 uppercase border-b-2 rounded-lg border-slate-800 hover:bg-slate-800 hover:text-white">Order Your Favorite Food</button>
+    </>
+
     return (
         <div>
             <Helmet>
@@ -73,7 +77,7 @@ const OurMenu = () => {
                 <br /><br />
                 <div className="text-center">
                     <Link to="/shop">
-                        <button className="p-3 uppercase border-b-2 border-black rounded-lg hover:btn-outline">Order Your Favorite Food</button>
+                        {orderButton}
                     </Link>
                 </div>
             </div>
@@ -94,12 +98,12 @@ const OurMenu = () => {
                 <br /><br />
                 <div className="text-center">
                     <Link to="/shop">
-                        <button className="p-3 uppercase border-b-2 border-black rounded-lg hover:btn-outline">Order Your Favorite Food</button>
+                        {orderButton}
                     </Link>
                 </div>
             </div>
             <br /><br />
-            {/* Pizza Menu */}
+            {/* Pizzas Menu */}
             <div>
                 <PageHeading background={pizzaBG} heading={"Pizzas"} subHeading={"Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."} width={'w-8/12'}></PageHeading>
                 <br /><br />
@@ -115,12 +119,12 @@ const OurMenu = () => {
                 <br /><br />
                 <div className="text-center">
                     <Link to="/shop">
-                        <button className="p-3 uppercase border-b-2 border-black rounded-lg hover:btn-outline">Order Your Favorite Food</button>
+                        {orderButton}
                     </Link>
                 </div>
             </div>
             <br /><br />
-            {/* Salad Menu */}
+            {/* Salads Menu */}
             <div>
                 <PageHeading background={saladBG} heading={"Salads"} subHeading={"Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."} width={'w-8/12'}></PageHeading>
                 <br /><br />
@@ -136,12 +140,12 @@ const OurMenu = () => {
                 <br /><br />
                 <div className="text-center">
                     <Link to="/shop">
-                        <button className="p-3 uppercase border-b-2 border-black rounded-lg hover:btn-outline">Order Your Favorite Food</button>
+                        {orderButton}
                     </Link>
                 </div>
             </div>
             <br /><br />
-            {/* Soup Menu */}
+            {/* Soups Menu */}
             <div>
                 <PageHeading background={soupBG} heading={"Soups"} subHeading={"Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."} width={'w-8/12'}></PageHeading>
                 <br /><br />
@@ -156,8 +160,8 @@ const OurMenu = () => {
                 }
                 <br /><br />
                 <div className="text-center">
-                    <Link to="">
-                        <button className="p-3 uppercase border-b-2 border-black rounded-lg hover:btn-outline">Order Your Favorite Food</button>
+                    <Link to="/shop">
+                        {orderButton}
                     </Link>
                 </div>
             </div>

@@ -14,7 +14,6 @@ const OurShop = () => {
 
     const [menu] = useMenu();
 
-    const [popular, setPopular] = useState();
     const [salads, setSalads] = useState();
     const [pizzas, setPizzas] = useState();
     const [soups, setSoups] = useState();
@@ -23,8 +22,6 @@ const OurShop = () => {
 
     useEffect(() => {
         if (menu) {
-            const popularItems = menu.filter(item => item.category === "popular");
-            setPopular(popularItems);
             const saladItems = menu.filter(item => item.category === "salad");
             setSalads(saladItems);
             const pizzaItems = menu.filter(item => item.category === "pizza");
@@ -58,7 +55,7 @@ const OurShop = () => {
             <br /><br />
             <div className="w-11/12 mx-auto">
                 <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-                    <TabList className="text-xl text-center">
+                    <TabList className="text-xl text-center focus:[&>*]:text-yellow-600 focus:[&>*]:underline-offset-8 focus:[&>*]:underline font-semibold">
                         <Tab>Salads</Tab>
                         <Tab>Pizzas</Tab>
                         <Tab>Soups</Tab>
