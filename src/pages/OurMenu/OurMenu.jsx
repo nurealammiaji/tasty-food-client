@@ -82,22 +82,22 @@ const OurMenu = () => {
                 </div>
             </div>
             <br /><br />
-            {/* Desserts Menu */}
+            {/* Salads Menu */}
             <div>
-                <PageHeading background={dessertBG} heading={"Desserts"} subHeading={"Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."} width={'w-8/12'}></PageHeading>
+                <PageHeading background={saladBG} heading={"Salads"} subHeading={"Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."} width={'w-8/12'}></PageHeading>
                 <br /><br />
                 {
-                    (menu && desserts) ?
+                    (menu && salads) ?
                         <div className='grid w-11/12 gap-10 mx-auto md:grid-cols-2'>
                             {
-                                (desserts) &&
-                                desserts.map(item => <MenuItem key={item._id} item={item}></MenuItem>)
+                                (salads) &&
+                                salads.map(item => <MenuItem key={item._id} item={item}></MenuItem>)
                             }
                         </div> : spinner
                 }
                 <br /><br />
                 <div className="text-center">
-                    <Link to="/shop">
+                    <Link to="/shop/salads">
                         {orderButton}
                     </Link>
                 </div>
@@ -118,28 +118,7 @@ const OurMenu = () => {
                 }
                 <br /><br />
                 <div className="text-center">
-                    <Link to="/shop">
-                        {orderButton}
-                    </Link>
-                </div>
-            </div>
-            <br /><br />
-            {/* Salads Menu */}
-            <div>
-                <PageHeading background={saladBG} heading={"Salads"} subHeading={"Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."} width={'w-8/12'}></PageHeading>
-                <br /><br />
-                {
-                    (menu && salads) ?
-                        <div className='grid w-11/12 gap-10 mx-auto md:grid-cols-2'>
-                            {
-                                (salads) &&
-                                salads.map(item => <MenuItem key={item._id} item={item}></MenuItem>)
-                            }
-                        </div> : spinner
-                }
-                <br /><br />
-                <div className="text-center">
-                    <Link to="/shop">
+                    <Link to="/shop/pizzas">
                         {orderButton}
                     </Link>
                 </div>
@@ -165,6 +144,28 @@ const OurMenu = () => {
                     </Link>
                 </div>
             </div>
+            <br /><br />
+            {/* Desserts Menu */}
+            <div>
+                <PageHeading background={dessertBG} heading={"Desserts"} subHeading={"Lorem Ipsum has been the industry’s standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book."} width={'w-8/12'}></PageHeading>
+                <br /><br />
+                {
+                    (menu && desserts) ?
+                        <div className='grid w-11/12 gap-10 mx-auto md:grid-cols-2'>
+                            {
+                                (desserts) &&
+                                desserts.map(item => <MenuItem key={item._id} item={item}></MenuItem>)
+                            }
+                        </div> : spinner
+                }
+                <br /><br />
+                <div className="text-center">
+                    <Link to="/shop/desserts">
+                        {orderButton}
+                    </Link>
+                </div>
+            </div>
+            <br /><br />
         </div>
     );
 };

@@ -6,12 +6,19 @@ import 'react-tabs/style/react-tabs.css';
 import useMenu from '../../hooks/useMenu';
 import { useEffect, useState } from "react";
 import ShopCards from "../../components/ShopCards/ShopCards";
+import { useParams } from "react-router-dom";
 
 
 const OurShop = () => {
 
-    const [tabIndex, setTabIndex] = useState(0);
-
+    const categories = ["salads", "pizzas", "soups", "desserts", "drinks"];
+    let { category } = useParams();
+    if (category === undefined) {
+        category = "salads";
+    }
+    const initialIndex = categories.indexOf(category) ;
+    const [tabIndex, setTabIndex] = useState(initialIndex);
+    
     const [menu] = useMenu();
 
     const [salads, setSalads] = useState();
@@ -19,6 +26,7 @@ const OurShop = () => {
     const [soups, setSoups] = useState();
     const [desserts, setDesserts] = useState();
     const [drinks, setDrinks] = useState();
+
 
     useEffect(() => {
         if (menu) {
