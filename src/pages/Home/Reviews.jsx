@@ -29,8 +29,8 @@ const Reviews = () => {
                                     <div className='mb-14'>
                                         <Rating style={{ maxWidth: 150, display: "inline-flex" }} value={review.rating} readOnly />
                                     </div>
-                                    <div className='mb-14'>
-                                        <img src={quote} className='h-[100px] mx-auto' alt="" />
+                                    <div className='mb-14 w-24 mx-auto'>
+                                        <img src={quote} alt="" />
                                     </div>
                                     <p>{review.details}</p>
                                     <h4 className='text-2xl text-yellow-600 uppercase'>{review.name}</h4>
