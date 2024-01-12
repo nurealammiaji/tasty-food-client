@@ -139,7 +139,7 @@ const OurMenu = () => {
                 }
                 <br /><br />
                 <div className="text-center">
-                    <Link to="/shop">
+                    <Link to="/shop/soups">
                         {orderButton}
                     </Link>
                 </div>
