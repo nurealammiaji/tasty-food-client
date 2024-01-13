@@ -14,9 +14,7 @@ const Navbar = () => {
         logout()
             .then(result => {
                 console.log(result);
-                localStorage.removeItem('toyCorner-user-token');
-                localStorage.removeItem('toyCorner-pinnedPost');
-                toast.success("Logout Successful !!", {
+                toast.success("Logged Out Successfully !!", {
                     position: toast.POSITION.TOP_CENTER
                 });
             })

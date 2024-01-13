@@ -10,6 +10,7 @@ import FoodCard from '../../components/FoodCard/FoodCard';
 import { Helmet } from "react-helmet-async";
 import useMenu from '../../hooks/useMenu';
 import { useEffect, useState } from "react";
+import { ToastContainer } from "react-toastify";
 
 
 const Home = () => {
@@ -26,6 +27,7 @@ const Home = () => {
 
     return (
         <div>
+            <ToastContainer />
             <Helmet>
                 <title>Home || Tasty Food</title>
             </Helmet>

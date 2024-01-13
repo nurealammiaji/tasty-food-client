@@ -3,17 +3,25 @@ import loginImage from "../../assets/others/authentication2.png";
 import { useContext, useEffect, useRef, useState } from "react";
 import { AuthContext } from '../../provider/AuthProvider';
 import bg from "../../assets/others/authentication.png";
-import { loadCaptchaEnginge, LoadCanvasTemplate, LoadCanvasTemplateNoReload, validateCaptcha } from 'react-simple-captcha';
+import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-simple-captcha';
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { PiChecksBold, PiFacebookLogoBold, PiGithubLogoBold, PiGoogleLogoBold } from "react-icons/pi";
+import { ToastContainer, toast } from 'react-toastify';
 
 const Login = () => {
 
-  const { emailLogin, emailRegister, googleLogin, loading } = useContext(AuthContext);
+  const { emailLogin, googleLogin } = useContext(AuthContext);
 
   const [disabled, setDisabled] = useState(true);
   const captchaRef = useRef(null);
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const destination = location.state?.from?.pathname || "/";
+
   useEffect(() => {
-    loadCaptchaEnginge(6)
+    loadCaptchaEnginge(6);
   }, [])
 
   const captchaHandler = (event) => {
@@ -21,6 +29,9 @@ const Login = () => {
     const user_captcha_value = captchaRef.current.value;
     if (validateCaptcha(user_captcha_value) === true) {
       setDisabled(false);
+      toast.success("Captcha Verified !!", {
+        position: toast.POSITION.TOP_CENTER
+      });
     }
     else {
       setDisabled(true);
@@ -34,16 +45,41 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
     emailLogin(email, password)
-    .then(result => {
-      console.log(result);
-    })
-    .then(error => {
-      console.log(error);
-    })
+      .then(result => {
+        console.log(result);
+        toast.success("Logged in Successfully !!", {
+          position: toast.POSITION.TOP_CENTER
+        });
+        navigate(destination, { replace: true });
+      })
+      .then(error => {
+        console.log(error);
+        toast.error(`${error}`, {
+          position: toast.POSITION.TOP_CENTER
+        });
+      })
+  }
+
+  const googleLoginHandler = () => {
+    googleLogin()
+      .then(result => {
+        console.log(result);
+        toast.success("Logged in Successfully !!", {
+          position: toast.POSITION.TOP_CENTER
+        });
+        navigate(destination, { replace: true });
+      })
+      .then(error => {
+        console.log(error);
+        toast.error(`${error}`, {
+          position: toast.POSITION.TOP_CENTER
+        });
+      })
   }
 
   return (
     <div>
+      <ToastContainer />
       <Helmet>
         <title>Login || Tasty Food</title>
       </Helmet>
@@ -85,31 +121,41 @@ const Login = () => {
                     />
                   </div>
                   <div className="form-control">
-                  <label className="label mb-2">
+                    <label className="label">
                       <span className="label-text">Captcha</span>
                     </label>
                     <LoadCanvasTemplate />
                   </div>
-                  <div className="form-control mt-3">
+                  <div className="mt-2 form-control">
                     <div className="join">
-                      <input ref={captchaRef} className="input input-bordered join-item w-full" placeholder="captcha" />
-                      <button className="btn btn-outline btn-success join-item" onClick={captchaHandler} disabled={!disabled} >Validate</button>
+                      <input ref={captchaRef} className="w-full input input-bordered join-item" placeholder="captcha" disabled={!disabled} />
+                      {
+                        (disabled) ?
+                          <button className="btn btn-outline btn-info join-item" onClick={captchaHandler}>Verify</button>
+                          :
+                          <button className="btn btn-outline btn-success join-item" onClick={captchaHandler}>Verified <PiChecksBold className="text-xl font-semibold" /> </button>
+                      }
                     </div>
                   </div>
                   <div className="mt-6 form-control">
-                    <button className="btn btn-primary" type="submit" disabled={disabled}>Login</button>
+                    <button className="btn btn-warning" type="submit" disabled={disabled}>Login</button>
                   </div>
-                  <div className="flex justify-between">
-                    <label className="label">
-                      <a href="#" className="label-text-alt link link-hover">
-                        Need Account?
-                      </a>
+                  <div className="flex items-center justify-center mt-3">
+                    <label className="label"><span className="mr-2 text-sm">New here ?</span>
+                      <Link to="/register" className="text-sm font-medium text-yellow-600 label-text-alt link link-hover">
+                        Create a New Account
+                      </Link>
                     </label>
+                  </div>
+                  <div className="flex justify-center">
                     <label className="label">
-                      <a href="#" className="label-text-alt link link-hover">
-                        Forgot password?
-                      </a>
+                      <span className="font-medium label-text">Or login with</span>
                     </label>
+                  </div>
+                  <div className="flex items-center justify-center mt-3">
+                    <button onClick={googleLoginHandler} className="btn btn-outline btn-circle btn-success btn-sm"><PiGoogleLogoBold className="text-2xl" /></button>
+                    <button className="mx-5 btn-sm btn btn-outline btn-circle"><PiGithubLogoBold className="text-2xl" /></button>
+                    <button className="btn btn-outline btn-circle btn-primary btn-sm"><PiFacebookLogoBold className="text-2xl" /></button>
                   </div>
                 </form>
               </div>

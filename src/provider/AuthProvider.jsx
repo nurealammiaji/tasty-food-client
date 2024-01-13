@@ -13,22 +13,22 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
     const emailRegister = (email, password) => {
-        setLoading(true);
+        setLoading(true)
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     const emailLogin = (email, password) => {
-        setLoading(true);
+        setLoading(true)
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     const googleLogin = () => {
-        setLoading(true);
+        setLoading(true)
         return signInWithPopup(auth, googleProvider)
     }
 
     const logout = () => {
-        return signOut
+        return signOut(auth)
     }
 
     useEffect(() => {
