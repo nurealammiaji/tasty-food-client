@@ -47,12 +47,14 @@ const Login = () => {
     emailLogin(email, password)
       .then(result => {
         console.log(result);
-        toast.success("Logged in Successfully !!", {
-          position: toast.POSITION.TOP_CENTER
-        });
-        navigate(destination, { replace: true });
+        if (result) {
+          toast.success("Logged in Successfully !!", {
+            position: toast.POSITION.TOP_CENTER
+          });
+          navigate(destination, { replace: true });
+        }
       })
-      .then(error => {
+      .catch(error => {
         console.log(error);
         toast.error(`${error}`, {
           position: toast.POSITION.TOP_CENTER
@@ -64,12 +66,14 @@ const Login = () => {
     googleLogin()
       .then(result => {
         console.log(result);
-        toast.success("Logged in Successfully !!", {
-          position: toast.POSITION.TOP_CENTER
-        });
-        navigate(destination, { replace: true });
+        if (result) {
+          toast.success("Logged in Successfully !!", {
+            position: toast.POSITION.TOP_CENTER
+          });
+          navigate(destination, { replace: true });
+        }
       })
-      .then(error => {
+      .catch(error => {
         console.log(error);
         toast.error(`${error}`, {
           position: toast.POSITION.TOP_CENTER
@@ -105,6 +109,7 @@ const Login = () => {
                     <input
                       type="email"
                       placeholder="email"
+                      name="email"
                       className="input input-bordered"
                       required
                     />
@@ -116,6 +121,7 @@ const Login = () => {
                     <input
                       type="password"
                       placeholder="password"
+                      name="password"
                       className="input input-bordered"
                       required
                     />
@@ -133,31 +139,31 @@ const Login = () => {
                         (disabled) ?
                           <button className="btn btn-outline btn-info join-item" onClick={captchaHandler}>Verify</button>
                           :
-                          <button className="btn btn-outline btn-success join-item" onClick={captchaHandler}>Verified <PiChecksBold className="text-xl font-semibold" /> </button>
+                          <button className="btn btn-outline btn-success join-item">Verified <PiChecksBold className="text-xl font-semibold" /></button>
                       }
                     </div>
                   </div>
                   <div className="mt-6 form-control">
                     <button className="btn btn-warning" type="submit" disabled={disabled}>Login</button>
                   </div>
-                  <div className="flex items-center justify-center mt-3">
-                    <label className="label"><span className="mr-2 text-sm">New here ?</span>
-                      <Link to="/register" className="text-sm font-medium text-yellow-600 label-text-alt link link-hover">
-                        Create a New Account
-                      </Link>
-                    </label>
-                  </div>
-                  <div className="flex justify-center">
-                    <label className="label">
-                      <span className="font-medium label-text">Or login with</span>
-                    </label>
-                  </div>
-                  <div className="flex items-center justify-center mt-3">
-                    <button onClick={googleLoginHandler} className="btn btn-outline btn-circle btn-success btn-sm"><PiGoogleLogoBold className="text-2xl" /></button>
-                    <button className="mx-5 btn-sm btn btn-outline btn-circle"><PiGithubLogoBold className="text-2xl" /></button>
-                    <button className="btn btn-outline btn-circle btn-primary btn-sm"><PiFacebookLogoBold className="text-2xl" /></button>
-                  </div>
                 </form>
+                <div className="flex items-center justify-center mt-3">
+                  <label className="label"><span className="mr-2 text-sm">New here ?</span>
+                    <Link to="/register" className="text-sm font-medium text-yellow-600 label-text-alt link link-hover">
+                      Create a New Account
+                    </Link>
+                  </label>
+                </div>
+                <div className="flex justify-center">
+                  <label className="label">
+                    <span className="font-medium label-text">Or login with</span>
+                  </label>
+                </div>
+                <div className="flex items-center justify-center mt-3">
+                  <button onClick={googleLoginHandler} className="btn btn-outline btn-circle btn-success btn-sm"><PiGoogleLogoBold className="text-2xl" /></button>
+                  <button className="mx-5 btn-sm btn btn-outline btn-circle"><PiGithubLogoBold className="text-2xl" /></button>
+                  <button className="btn btn-outline btn-circle btn-primary btn-sm"><PiFacebookLogoBold className="text-2xl" /></button>
+                </div>
               </div>
             </div>
           </div>

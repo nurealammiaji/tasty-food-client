@@ -31,7 +31,7 @@ const Register = () => {
                 });
                 navigate(destination, { replace: true });
             })
-            .then(error => {
+            .catch(error => {
                 console.log(error);
                 toast.error(`${error}`, {
                     position: toast.POSITION.TOP_CENTER
@@ -48,7 +48,7 @@ const Register = () => {
                 });
                 navigate(destination, { replace: true });
             })
-            .then(error => {
+            .catch(error => {
                 console.log(error);
                 toast.error(`${error }`, {
                     position: toast.POSITION.TOP_CENTER
@@ -109,7 +109,7 @@ const Register = () => {
                                         />
                                     </div>
                                     <div className="mt-6 form-control">
-                                        <button className="btn btn-primary" type="submit">Register</button>
+                                        <button className="btn btn-warning" type="submit">Register</button>
                                     </div>
                                     <div className="flex items-center justify-center mt-3">
                                         <label className="label"><span className="mr-2 text-sm">Already registered ?</span>
