@@ -10,8 +10,7 @@ import useCart from "../../hooks/useCart";
 const Navbar = () => {
 
     const { user, logout } = useContext(AuthContext);
-
-    const { cart } = useCart();
+    const  [cart] = useCart();
 
     if (cart) {
         console.log(cart);
@@ -77,6 +76,7 @@ const Navbar = () => {
                             <PiShoppingCart className="text-xl md:text-2xl" />
                             <span className="absolute left-0 p-1 top-2 badge badge-primary badge-sm">
                                 {
+                                    (user && cart) &&
                                     cart?.length || 0
                                 }
                             </span>
