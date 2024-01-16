@@ -9,6 +9,7 @@ import ContactUs from './../pages/ContactUs/ContactUs';
 import OurShop from './../pages/OurShop/OurShop';
 import Dashboard from './../pages/Dashboard/Dashboard';
 import Private from './Private';
+import MyCart from '../pages/Dashboard/MyCart';
 
 
 const Routes = createBrowserRouter([
@@ -49,7 +50,13 @@ const Routes = createBrowserRouter([
     },
     {
         path: "dashboard",
-        element: <Dashboard></Dashboard>
+        element: <Private><Dashboard></Dashboard></Private>,
+        children: [
+            {
+                path: "cart",
+                element: <MyCart></MyCart>
+            }
+        ]
     }
 ])
 

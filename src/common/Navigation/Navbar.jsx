@@ -5,10 +5,17 @@ import { useContext } from "react";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../../provider/AuthProvider';
+import useCart from "../../hooks/useCart";
 
 const Navbar = () => {
 
     const { user, logout } = useContext(AuthContext);
+
+    const { cart } = useCart();
+
+    if (cart) {
+        console.log(cart);
+    }
 
     const logoutHandler = () => {
         logout()
@@ -60,7 +67,7 @@ const Navbar = () => {
                             <PiHeart className="text-xl md:text-2xl" />
                             <span className="absolute left-0 p-1 top-2 badge badge-primary badge-sm">
                                 {
-                                    (user)&& '0'
+                                    (user) && '0'
                                 }
                             </span>
                         </label>
@@ -70,7 +77,7 @@ const Navbar = () => {
                             <PiShoppingCart className="text-xl md:text-2xl" />
                             <span className="absolute left-0 p-1 top-2 badge badge-primary badge-sm">
                                 {
-                                    (user)&& '0'
+                                    cart?.length || 0
                                 }
                             </span>
                         </label>
