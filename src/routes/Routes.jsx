@@ -26,10 +26,6 @@ const Routes = createBrowserRouter([
                 element: <ContactUs></ContactUs>
             },
             {
-                path: "/dashboard",
-                element: <Private><Dashboard></Dashboard></Private>
-            },
-            {
                 path: "/menu",
                 element: <OurMenu></OurMenu>
             },
@@ -50,6 +46,10 @@ const Routes = createBrowserRouter([
     {
         path: "register",
         element: <Register></Register>
+    },
+    {
+        path: "dashboard",
+        element: <Dashboard></Dashboard>
     }
 ])
 

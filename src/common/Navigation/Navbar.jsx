@@ -13,9 +13,11 @@ const Navbar = () => {
     const logoutHandler = () => {
         logout()
             .then(result => {
-                toast.success("Logged Out Successfully !!", {
-                    position: toast.POSITION.TOP_CENTER
-                });
+                if (result) {
+                    toast.success("Logged Out Successfully !!", {
+                        position: toast.POSITION.TOP_CENTER
+                    });
+                }
             })
             .catch(error => {
                 console.log(error);
@@ -53,12 +55,12 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end [&>*]:ml-1 hover:[&>*]:text-red-600">
-                    {/* <div className="mr-1 drawer-content tooltip" data-tip="Wishlist">
+                    <div className="mr-1 drawer-content tooltip" data-tip="Wishlist">
                         <label htmlFor="wishlist-drawer" className="relative drawer-button">
                             <PiHeart className="text-xl md:text-2xl" />
                             <span className="absolute left-0 p-1 top-2 badge badge-primary badge-sm">
                                 {
-                                    (user && wishlist) ? wishlist.length : '0'
+                                    (user)&& '0'
                                 }
                             </span>
                         </label>
@@ -68,11 +70,11 @@ const Navbar = () => {
                             <PiShoppingCart className="text-xl md:text-2xl" />
                             <span className="absolute left-0 p-1 top-2 badge badge-primary badge-sm">
                                 {
-                                    (user && cart) ? cart.length : '0'
+                                    (user)&& '0'
                                 }
                             </span>
                         </label>
-                    </div> */}
+                    </div>
                     {(user) ?
                         <>
                             <div className="mr-1 avatar tooltip" data-tip={`${user.displayName}`}>
