@@ -10,6 +10,11 @@ import OurShop from './../pages/OurShop/OurShop';
 import Dashboard from './../pages/Dashboard/Dashboard';
 import Private from './Private';
 import MyCart from '../pages/Dashboard/MyCart';
+import AddItems from '../pages/Dashboard/AddItems';
+import ManageItmes from "../pages/Dashboard/ManageItems";
+import ManageItems from "../pages/Dashboard/ManageItems";
+import ManageBookings from "../pages/Dashboard/ManageBookings";
+import AllUsers from "../pages/Dashboard/AllUsers";
 
 
 const Routes = createBrowserRouter([
@@ -52,6 +57,22 @@ const Routes = createBrowserRouter([
         path: "dashboard",
         element: <Private><Dashboard></Dashboard></Private>,
         children: [
+            {
+                path: "add-items",
+                element: <AddItems></AddItems>
+            },
+            {
+                path: "manage-items",
+                element: <ManageItems></ManageItems>
+            },
+            {
+                path: "manage-bookings",
+                element: <ManageBookings></ManageBookings>
+            },
+            {
+                path: "all-users",
+                element: <AllUsers></AllUsers>
+            },
             {
                 path: "cart",
                 element: <MyCart></MyCart>
