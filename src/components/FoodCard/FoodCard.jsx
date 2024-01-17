@@ -1,37 +1,46 @@
 import { useContext } from "react";
-import { json } from "react-router-dom";
 import { AuthContext } from "../../provider/AuthProvider";
+import useCart from "../../hooks/useCart";
+import { Navigate, useLocation, useNavigate } from "react-router-dom";
 
 
 const FoodCard = ({ item }) => {
 
-    const {user} = useContext(AuthContext);
-
+    const { user } = useContext(AuthContext);
     const { _id, name, image, recipe, price } = item;
+    const [, refetch] = useCart();
+    const location = useLocation();
+    const navigate = useNavigate();
 
     const handleAddToCart = (item) => {
         console.log(item);
-        const cart = {
-            menuID: _id,
-            name: name,
-            image: image,
-            price: price,
-            email: user?.email
+        if (user) {
+            const cart = {
+                menuID: _id,
+                name: name,
+                image: image,
+                price: price,
+                email: user?.email
+            }
+            fetch('http://localhost:5000/carts', {
+                method: "POST",
+                headers: {
+                    'content-type': 'application/json'
+                },
+                body: JSON.stringify(cart)
+            })
+                .then(res => res.json())
+                .then(data => {
+                    console.log(data);
+                    refetch();
+                })
+                .catch(error => {
+                    console.log(error);
+                })
         }
-        fetch('http://localhost:5000/carts', {
-            method: "POST",
-            headers: {
-                'content-type': 'application/json'
-            },
-            body: JSON.stringify(cart)
-        })
-        .then(res => res.json())
-        .then(data => {
-            console.log(data);
-        })
-        .catch(error => {
-            console.log(error);
-        })
+        else {
+            navigate("/login", {state: {from: location}, replace: true})
+        }
     }
 
     return (

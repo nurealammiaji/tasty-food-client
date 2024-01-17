@@ -10,11 +10,7 @@ import useCart from "../../hooks/useCart";
 const Navbar = () => {
 
     const { user, logout } = useContext(AuthContext);
-    const  [cart] = useCart();
-
-    if (cart) {
-        console.log(cart);
-    }
+    const [ cart ] = useCart();
 
     const logoutHandler = () => {
         logout()
@@ -61,16 +57,16 @@ const Navbar = () => {
                     </ul>
                 </div>
                 <div className="navbar-end [&>*]:ml-1 hover:[&>*]:text-red-600">
-                    <div className="mr-1 drawer-content tooltip" data-tip="Wishlist">
+                    {/* <div className="mr-1 drawer-content tooltip" data-tip="Wishlist">
                         <label htmlFor="wishlist-drawer" className="relative drawer-button">
                             <PiHeart className="text-xl md:text-2xl" />
                             <span className="absolute left-0 p-1 top-2 badge badge-primary badge-sm">
                                 {
-                                    (user) && '0'
+                                    (user && cart) && 0
                                 }
                             </span>
                         </label>
-                    </div>
+                    </div> */}
                     <div className="mr-3 md:mr-5 drawer-content tooltip" data-tip="Cart">
                         <label htmlFor="cart-drawer" className="relative drawer-button">
                             <PiShoppingCart className="text-xl md:text-2xl" />
