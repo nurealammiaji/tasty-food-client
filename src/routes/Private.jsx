@@ -10,8 +10,13 @@ const Private = ({ children }) => {
 
     if (loading) {
         return <>
-            <div className="text-center mx-auto">
-                <button className="btn btn-ghost btn-error">Loading ...</button>
+            <div className="w-screen mx-auto my-auto text-center">
+                <br /><br />
+                <p className="flex items-center justify-center gap-3 font-semibold text-red-600">
+                    <span className="loading loading-spinner"></span>
+                    Loading ...
+                </p>
+                <br /><br />
             </div>
         </>
     }

@@ -63,7 +63,7 @@ const OurMenu = () => {
             <div>
                 <PageHeading background={menuBG} heading={"Our Menu"} subHeading={"Would you like to try a dish?"} width={"md:py-20 md:px-40"}></PageHeading>
                 <br /><br />
-                <SectionHeading subHeading={"Don't Miss"} heading={"Today's Offer"}></SectionHeading>
+                <SectionHeading subHeading={"Don't Miss"} heading={"Today's Offer"} width={'w-8/12 md:w-4/12'}></SectionHeading>
                 <br /><br />
                 {
                     (menu && offered) ?

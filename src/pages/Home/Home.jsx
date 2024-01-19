@@ -34,12 +34,12 @@ const Home = () => {
             <Slider></Slider>
             <br /><br />
             <SectionHeading subHeading={"From 11:00am to 10:00pm"
-            } heading={"Order Online"}></SectionHeading>
+            } heading={"Order Online"} width={'w-8/12 md:w-4/12'}></SectionHeading>
             <br /><br />
             <MenuCard></MenuCard>
             <br /><br />
             <MidBanner></MidBanner>
-            <SectionHeading subHeading={"Check It Out"} heading={"From Our Menu"}></SectionHeading>
+            <SectionHeading subHeading={"Check It Out"} heading={"From Our Menu"} width={'w-8/12 md:w-4/12'}></SectionHeading>
             <br /><br />
             {
                 (menu) ?
@@ -69,7 +69,7 @@ const Home = () => {
                 <h2 className="text-5xl font-semibold text-white">Call Us: +880 123456789</h2>
             </div>
             <br /><br />
-            <SectionHeading subHeading={"Should Try"} heading={"Chef Recommends"}></SectionHeading>
+            <SectionHeading subHeading={"Should Try"} heading={"Chef Recommends"} width={'w-8/12 md:w-4/12'}></SectionHeading>
             <br /><br />
             {
                 (menu) ?
@@ -91,7 +91,7 @@ const Home = () => {
             }
             <MidSection></MidSection>
             <br /><br />
-            <SectionHeading subHeading={"What Our Clients Say"} heading={"Testimonials"}></SectionHeading>
+            <SectionHeading subHeading={"What Our Clients Say"} heading={"Testimonials"} width={'w-8/12 md:w-4/12'}></SectionHeading>
             <br /><br />
             <Reviews></Reviews>
         </div>
