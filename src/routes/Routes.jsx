@@ -73,7 +73,7 @@ const Routes = createBrowserRouter([
             {
                 path: "manage-items/:id",
                 element: <UpdateItem></UpdateItem>,
-                loader: ({params}) => fetch(`http://localhost:5000/carts/${params.id}`)
+                loader: ({params}) => fetch(`http://localhost:5000/menus/${params.id}`)
             },
             {
                 path: "manage-bookings",

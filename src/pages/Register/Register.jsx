@@ -66,7 +66,7 @@ const Register = () => {
                 Swal.fire({
                     position: "top-center",
                     icon: "success",
-                    title: `${error.message}`,
+                    title: `${error.message.slice(9,)}`,
                     showConfirmButton: false,
                     timer: 1500
                 });

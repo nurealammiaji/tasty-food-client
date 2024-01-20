@@ -1,8 +1,13 @@
 import { Helmet } from "react-helmet-async";
 import SectionHeading from '../../../components/SectionHeading/SectionHeading';
+import useMenu from '../../../hooks/useMenu';
+import Item from "./Item";
 
 
 const ManageItems = () => {
+
+    const [menu] = useMenu();
+
     return (
         <div className="bg-base-200">
             <Helmet>
@@ -16,9 +21,9 @@ const ManageItems = () => {
                         <table className="table">
                             {/* head */}
                             <thead>
-                                <tr>
-                                    <th>Image</th>
-                                    <th>Name</th>
+                                <tr className="bg-[#D1A054] text-white uppercase text-sm">
+                                    <th>Item Image</th>
+                                    <th>Item Name</th>
                                     <th>Price</th>
                                     <th>Action</th>
                                     <th>Action</th>
@@ -26,36 +31,24 @@ const ManageItems = () => {
                             </thead>
                             <tbody>
                                 {/* row 1 */}
-                                <tr>
-                                    <td>
-                                        <div className="avatar">
-                                            <div className="w-12 h-12 mask mask-squircle">
-                                                <img src="/tailwind-css-component-profile-3@56w.png" alt="Avatar Tailwind CSS Component" />
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        <div>
-                                            <div className="font-bold">Brice Swyre</div>
-                                            <div className="text-sm opacity-50">China</div>
-                                        </div>
-                                    </td>
-                                    <td>
-                                        Carroll Group
-                                        <br />
-                                        <span className="badge badge-ghost badge-sm">Tax Accountant</span>
-                                    </td>
-                                    <td>Red</td>
-                                    <th>
-                                        <button className="btn btn-ghost btn-xs">details</button>
-                                    </th>
-                                </tr>
+                                {
+                                    (menu) ?
+                                        menu.map(item => <Item key={item._id} item={item}></Item>) :
+                                        <>
+                                            <tr className="w-screen mx-auto my-auto text-center">
+                                                <td className="my-5 flex items-center justify-center gap-3 font-semibold text-red-600">
+                                                    <span className="loading loading-spinner"></span>
+                                                    Loading ...
+                                                </td>
+                                            </tr>
+                                        </>
+                                }
                             </tbody>
                             {/* foot */}
                             <tfoot>
-                                <tr>
-                                    <th>Image</th>
-                                    <th>Name</th>
+                                <tr className="bg-[#D1A054] text-white uppercase text-sm">
+                                    <th>Item Image</th>
+                                    <th>Item Name</th>
                                     <th>Price</th>
                                     <th>Action</th>
                                     <th>Action</th>

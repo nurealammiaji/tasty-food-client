@@ -3,8 +3,8 @@ import { useLoaderData } from "react-router-dom";
 
 const UpdateItem = () => {
 
-    const cart = useLoaderData();
-    const { _id, name, recipe, image, category, price } = cart;
+    const item = useLoaderData();
+    const { _id, name, recipe, image, category, price } = item;
 
     const handleUpdate = (event) => {
         event.preventDefault();
@@ -69,7 +69,7 @@ const UpdateItem = () => {
                         </div>
                         <br />
                         <div className="text-center">
-                            <button type="submit" className="btn bg-[#D1A054]">Update Item</button>
+                            <button type="submit" className="btn text-white bg-[#D1A054]">Update Item</button>
                         </div>
                     </form>
                 </div>
