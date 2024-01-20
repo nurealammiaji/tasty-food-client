@@ -7,6 +7,7 @@ import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-s
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { PiChecksBold, PiFacebookLogoBold, PiGithubLogoBold, PiGoogleLogoBold } from "react-icons/pi";
 import { ToastContainer, toast } from 'react-toastify';
+import Swal from "sweetalert2";
 
 const Login = () => {
 
@@ -48,17 +49,25 @@ const Login = () => {
       .then(result => {
         console.log(result);
         if (result) {
-          toast.success("Logged in Successfully !!", {
-            position: toast.POSITION.TOP_CENTER
-          });
+          Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title: "Logged in Successful !",
+            showConfirmButton: false,
+            timer: 1500
+        });
           navigate(destination, { replace: true });
         }
       })
       .catch(error => {
         console.log(error);
-        toast.error(`${error}`, {
-          position: toast.POSITION.TOP_CENTER
-        });
+        Swal.fire({
+          position: "top-center",
+          icon: "error",
+          title: `${error.message.slice(9,)}`,
+          showConfirmButton: false,
+          timer: 1500
+      });
       })
   }
 
@@ -67,17 +76,25 @@ const Login = () => {
       .then(result => {
         console.log(result);
         if (result) {
-          toast.success("Logged in Successfully !!", {
-            position: toast.POSITION.TOP_CENTER
-          });
+          Swal.fire({
+            position: "top-center",
+            icon: "success",
+            title: "Logged in Successful !",
+            showConfirmButton: false,
+            timer: 1500
+        });
           navigate(destination, { replace: true });
         }
       })
       .catch(error => {
         console.log(error);
-        toast.error(`${error}`, {
-          position: toast.POSITION.TOP_CENTER
-        });
+        Swal.fire({
+          position: "top-center",
+          icon: "error",
+          title: `${error.message}`,
+          showConfirmButton: false,
+          timer: 1500
+      });
       })
   }
 

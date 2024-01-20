@@ -6,6 +6,7 @@ import bg from "../../assets/others/authentication.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { PiFacebookLogoBold, PiFacebookLogoFill, PiGithubLogoBold, PiGithubLogoFill, PiGoogleLogo, PiGoogleLogoBold, PiGoogleLogoFill } from "react-icons/pi";
 import { ToastContainer, toast } from 'react-toastify';
+import Swal from "sweetalert2";
 
 
 const Register = () => {
@@ -26,15 +27,23 @@ const Register = () => {
         emailRegister(email, password)
             .then(result => {
                 console.log(result);
-                toast.success("Registered Successfully !!", {
-                    position: toast.POSITION.TOP_CENTER
+                Swal.fire({
+                    position: "top-center",
+                    icon: "success",
+                    title: "Registered Successfully !",
+                    showConfirmButton: false,
+                    timer: 1500
                 });
                 navigate(destination, { replace: true });
             })
             .catch(error => {
                 console.log(error);
-                toast.error(`${error}`, {
-                    position: toast.POSITION.TOP_CENTER
+                Swal.fire({
+                    position: "top-center",
+                    icon: "error",
+                    title: `${error.message.slice(9,)}`,
+                    showConfirmButton: false,
+                    timer: 1500
                 });
             })
     }
@@ -43,15 +52,23 @@ const Register = () => {
         googleLogin()
             .then(result => {
                 console.log(result);
-                toast.success("Registered with google Successfully !!", {
-                    position: toast.POSITION.TOP_CENTER
+                Swal.fire({
+                    position: "top-center",
+                    icon: "success",
+                    title: "Registered Successfully !",
+                    showConfirmButton: false,
+                    timer: 1500
                 });
                 navigate(destination, { replace: true });
             })
             .catch(error => {
                 console.log(error);
-                toast.error(`${error }`, {
-                    position: toast.POSITION.TOP_CENTER
+                Swal.fire({
+                    position: "top-center",
+                    icon: "success",
+                    title: `${error.message}`,
+                    showConfirmButton: false,
+                    timer: 1500
                 });
             })
     }

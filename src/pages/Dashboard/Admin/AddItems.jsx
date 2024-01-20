@@ -44,7 +44,7 @@ const AddItems = () => {
                             <div className="label">
                                 <span className="label-text">Recipe Details *</span>
                             </div>
-                            <textarea className="textarea textarea-bordered" placeholder="Recipe Details"></textarea>
+                            <textarea className="textarea textarea-bordered" placeholder="Recipe Details" rows={3}></textarea>
                         </div>
                         <div className="w-full mt-3 form-control">
                             <div className="label">

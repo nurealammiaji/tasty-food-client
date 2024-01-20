@@ -6,6 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../../provider/AuthProvider';
 import useCart from "../../hooks/useCart";
+import Swal from "sweetalert2";
 
 const Navbar = () => {
 
@@ -15,11 +16,13 @@ const Navbar = () => {
     const logoutHandler = () => {
         logout()
             .then(result => {
-                if (result) {
-                    toast.success("Logged Out Successfully !!", {
-                        position: toast.POSITION.TOP_CENTER
-                    });
-                }
+                Swal.fire({
+                    position: "top-center",
+                    icon: "success",
+                    title: "Logged Out !",
+                    showConfirmButton: false,
+                    timer: 1500
+                });
             })
             .catch(error => {
                 console.log(error);
