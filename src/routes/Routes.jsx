@@ -82,7 +82,7 @@ const Routes = createBrowserRouter([
             {
                 path: "all-users",
                 element: <AllUsers></AllUsers>,
-                loader: () => fetch('http://localhost:5000/users')
+                // loader: () => fetch('http://localhost:5000/users')
             },
             {
                 path: "cart",

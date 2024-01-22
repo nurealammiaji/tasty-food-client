@@ -2,11 +2,14 @@ import { Helmet } from "react-helmet-async";
 import SectionHeading from "../../../components/SectionHeading/SectionHeading";
 import { useLoaderData } from "react-router-dom";
 import User from "./User";
+import useUser from "../../../hooks/useUser";
 
 
 const AllUsers = () => {
 
-    const users = useLoaderData();
+    // const users = useLoaderData();
+
+    const [users, refetch] = useUser();
     
     return (
         <div className="bg-base-200">
@@ -24,15 +27,15 @@ const AllUsers = () => {
                         }
                     </div>
                     <br />
-                    <div className="overflow-x-auto">
+                    <div className="overflow-x-auto rounded-t-lg">
                         <table className="table">
                             {/* head */}
                             <thead>
                                 <tr className="bg-[#D1A054] text-white uppercase text-sm">
-                                    <th>User Image</th>
-                                    <th>User Name</th>
-                                    <th>Price</th>
-                                    <th>Action</th>
+                                    <th>Image</th>
+                                    <th>Name</th>
+                                    <th>Email</th>
+                                    <th>Role</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -51,16 +54,6 @@ const AllUsers = () => {
                                         </>
                                 }
                             </tbody>
-                            {/* foot */}
-                            <tfoot>
-                                <tr className="bg-[#D1A054] text-white uppercase text-sm">
-                                    <th>Item Image</th>
-                                    <th>Item Name</th>
-                                    <th>Price</th>
-                                    <th>Action</th>
-                                    <th>Action</th>
-                                </tr>
-                            </tfoot>
                         </table>
                     </div>
                 </div>

@@ -31,7 +31,7 @@ const Item = ({ item }) => {
                 <Link to={`/dashboard/manage-items/${_id}`}><button className="btn btn-sm bg-[#D1A054] text-white"><PiNotePencilBold className="text-lg" /></button></Link>
             </td>
             <td>
-                <button onClick={() => handleDelete(_id)} className="btn btn-sm bg-[#D1A054] text-white"><PiTrashBold className="text-lg"/></button>
+                <button onClick={() => handleDelete(_id)} className="btn btn-sm bg-[#B91C1C] text-white"><PiTrashBold className="text-lg"/></button>
             </td>
         </tr>
     );

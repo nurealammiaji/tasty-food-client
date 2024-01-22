@@ -27,7 +27,7 @@ const ManageItems = () => {
                         }
                     </div>
                     <br />
-                    <div className="overflow-x-auto">
+                    <div className="overflow-x-auto rounded-t-lg">
                         <table className="table">
                             {/* head */}
                             <thead>
@@ -54,16 +54,6 @@ const ManageItems = () => {
                                         </>
                                 }
                             </tbody>
-                            {/* foot */}
-                            <tfoot>
-                                <tr className="bg-[#D1A054] text-white uppercase text-sm">
-                                    <th>Item Image</th>
-                                    <th>Item Name</th>
-                                    <th>Price</th>
-                                    <th>Action</th>
-                                    <th>Action</th>
-                                </tr>
-                            </tfoot>
                         </table>
                     </div>
                 </div>
