@@ -13,17 +13,17 @@ const AuthProvider = ({ children }) => {
     const [loading, setLoading] = useState(true);
 
     const emailRegister = (email, password) => {
-        setLoading(true)
+        setLoading(true);
         return createUserWithEmailAndPassword(auth, email, password)
     }
 
     const emailLogin = (email, password) => {
-        setLoading(true)
+        setLoading(true);
         return signInWithEmailAndPassword(auth, email, password)
     }
 
     const googleLogin = () => {
-        setLoading(true)
+        setLoading(true);
         return signInWithPopup(auth, googleProvider)
     }
 
@@ -36,12 +36,32 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setLoading(true);
             setUser(currentUser);
+            // User Creation
+            if (currentUser?.displayName) {
+                const user = {
+                    name: currentUser.displayName,
+                    email: currentUser.email,
+                    image: currentUser.photoURL
+                }
+                fetch('http://localhost:5000/users', {
+                    method: "POST",
+                    headers: {
+                        'content-type': 'application/json'
+                    },
+                    body: JSON.stringify(user)
+                })
+                .then(res => res.json())
+                .then(data => console.log(data))
+                .catch(error => {
+                    console.log(error);
+                })
+            }
             setLoading(false);
         })
         return () => {
             return unsubscribe();
         }
-    })
+    }, [])
 
     const authInfo = {
         user,

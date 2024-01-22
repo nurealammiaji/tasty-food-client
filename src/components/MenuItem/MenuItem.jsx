@@ -14,7 +14,7 @@ const MenuItem = ({ item }) => {
                 <p className="mt-2 text-slate-500">{recipe}</p>
             </div>
             <div>
-                <h5 className="text-lg font-medium text-yellow-600">${price}</h5>
+                <h5 className="text-lg font-medium text-[#D1A054]">${price}</h5>
             </div>
         </div>
     );

@@ -63,7 +63,7 @@ const FoodCard = ({ item }) => {
                 <h2 className="card-title">{name}</h2>
                 <p>{recipe.slice(0, 50)}..</p>
                 <div className="mt-5 card-actions">
-                    <button onClick={() => handleAddToCart(item)} className="p-3 font-medium text-yellow-600 uppercase border-b-2 border-yellow-600 rounded-lg hover:bg-slate-800 bg-slate-200">Add to Cart</button>
+                    <button onClick={() => handleAddToCart(item)} className="p-3 font-medium text-[#D1A054] uppercase border-b-2 border-[#D1A054] rounded-lg hover:bg-slate-800 bg-slate-200">Add to Cart</button>
                 </div>
             </div>
         </div>

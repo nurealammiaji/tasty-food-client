@@ -7,7 +7,7 @@ const MidSection = () => {
             <div className="hero" style={{ background: `url(${sectionBG}) center fixed no-repeat` }}>
                 <div className="hero-overlay bg-opacity-70"></div>
                 <div className="p-10 text-white">
-                    <SectionHeading subHeading={"Check it out"} heading={"From Our Menu"}></SectionHeading>
+                    <SectionHeading subHeading={"Check it out"} heading={"From Our Menu"} width={'w-8/12 md:w-4/12'}></SectionHeading>
                     <br /><br />
                     <div className="items-center justify-center flex-none gap-5 md:flex">
                         <div>

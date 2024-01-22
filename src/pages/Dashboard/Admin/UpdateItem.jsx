@@ -11,7 +11,7 @@ const UpdateItem = () => {
         const form = event.target;
         const name = form.name.value;
         const category = form.category.value;
-        const price = form.price.value;
+        const price = parseFloat(form.price.value);
         const recipe = form.recipe.value;
         const cart = {
             name: name,

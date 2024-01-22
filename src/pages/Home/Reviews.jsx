@@ -33,7 +33,7 @@ const Reviews = () => {
                                         <img src={quote} alt="" />
                                     </div>
                                     <p>{review.details}</p>
-                                    <h4 className='text-2xl text-yellow-600 uppercase'>{review.name}</h4>
+                                    <h4 className='text-2xl text-[#D1A054] uppercase'>{review.name}</h4>
                                 </div>
                             </SwiperSlide>)
                         }

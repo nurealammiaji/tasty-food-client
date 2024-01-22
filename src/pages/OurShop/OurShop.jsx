@@ -63,7 +63,7 @@ const OurShop = () => {
             <br /><br />
             <div className="w-11/12 mx-auto">
                 <Tabs selectedIndex={tabIndex} onSelect={(index) => setTabIndex(index)}>
-                    <TabList className="text-xl text-center focus:[&>*]:text-yellow-600 focus:[&>*]:underline-offset-8 focus:[&>*]:underline font-semibold">
+                    <TabList className="text-xl text-center focus:[&>*]:text-[#D1A054] focus:[&>*]:underline-offset-8 focus:[&>*]:underline font-semibold">
                         <Tab>Salads</Tab>
                         <Tab>Pizzas</Tab>
                         <Tab>Soups</Tab>

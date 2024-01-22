@@ -161,12 +161,12 @@ const Login = () => {
                     </div>
                   </div>
                   <div className="mt-6 form-control">
-                    <button className="btn btn-warning" type="submit" disabled={disabled}>Login</button>
+                    <button className="btn bg-[#D1A054] text-white" type="submit" disabled={disabled}>Login</button>
                   </div>
                 </form>
                 <div className="flex items-center justify-center mt-3">
                   <label className="label"><span className="mr-2 text-sm">New here ?</span>
-                    <Link to="/register" className="text-sm font-medium text-yellow-600 label-text-alt link link-hover">
+                    <Link to="/register" className="text-sm font-medium text-[#D1A054] label-text-alt link link-hover">
                       Create a New Account
                     </Link>
                   </label>

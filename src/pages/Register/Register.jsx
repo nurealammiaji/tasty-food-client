@@ -7,6 +7,7 @@ import { Link, useLocation, useNavigate } from "react-router-dom";
 import { PiFacebookLogoBold, PiFacebookLogoFill, PiGithubLogoBold, PiGithubLogoFill, PiGoogleLogo, PiGoogleLogoBold, PiGoogleLogoFill } from "react-icons/pi";
 import { ToastContainer, toast } from 'react-toastify';
 import Swal from "sweetalert2";
+import { updateProfile } from "firebase/auth";
 
 
 const Register = () => {
@@ -21,12 +22,40 @@ const Register = () => {
     const registerHandler = (event) => {
         event.preventDefault();
         const form = event.target;
-        // const name = form.name.value;
+        const name = form.name.value;
+        const image = form.image.value;
         const email = form.email.value;
         const password = form.password.value;
+        const user = {
+            name: name,
+            email: email,
+            image: image
+        };
         emailRegister(email, password)
             .then(result => {
                 console.log(result);
+                // Update Profile
+                const currentUser = result.user;
+                updateProfile(currentUser, {
+                    displayName: name,
+                    photoURL: image
+                })
+                .then(result => {
+                    console.log(result);
+                    // User Creation
+                    fetch('http://localhost:5000/users', {
+                        method: "POST",
+                        headers: {
+                            'content-type': 'application/json'
+                        },
+                        body: JSON.stringify(user)
+                    })
+                    .then(res => res.json())
+                    .then(data => console.log(data))
+                    .catch(error => {
+                        console.log(error);
+                    })
+                })
                 Swal.fire({
                     position: "top-center",
                     icon: "success",
@@ -103,6 +132,18 @@ const Register = () => {
                                     </div>
                                     <div className="form-control">
                                         <label className="label">
+                                            <span className="label-text">Photo URL</span>
+                                        </label>
+                                        <input
+                                            type="url"
+                                            placeholder="photo url"
+                                            name="image"
+                                            className="input input-bordered"
+                                            required
+                                        />
+                                    </div>
+                                    <div className="form-control">
+                                        <label className="label">
                                             <span className="label-text">Email</span>
                                         </label>
                                         <input
@@ -126,11 +167,11 @@ const Register = () => {
                                         />
                                     </div>
                                     <div className="mt-6 form-control">
-                                        <button className="btn btn-warning" type="submit">Register</button>
+                                        <button className="btn text-white bg-[#D1A054]" type="submit">Register</button>
                                     </div>
                                     <div className="flex items-center justify-center mt-3">
                                         <label className="label"><span className="mr-2 text-sm">Already registered ?</span>
-                                            <Link to="/login" className="text-sm font-medium text-yellow-600 label-text-alt link link-hover">
+                                            <Link to="/login" className="text-sm font-medium text-[#D1A054] label-text-alt link link-hover">
                                                 Go to log in
                                             </Link>
                                         </label>
