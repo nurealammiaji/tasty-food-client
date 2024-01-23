@@ -29,7 +29,8 @@ const Register = () => {
         const user = {
             name: name,
             email: email,
-            image: image
+            image: image,
+            role: "user"
         };
         emailRegister(email, password)
             .then(result => {

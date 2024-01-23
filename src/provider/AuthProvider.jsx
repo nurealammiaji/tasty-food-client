@@ -41,7 +41,8 @@ const AuthProvider = ({ children }) => {
                 const user = {
                     name: currentUser.displayName,
                     email: currentUser.email,
-                    image: currentUser.photoURL
+                    image: currentUser.photoURL,
+                    role: "user"
                 }
                 fetch('http://localhost:5000/users', {
                     method: "POST",
