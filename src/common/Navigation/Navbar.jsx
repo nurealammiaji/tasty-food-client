@@ -16,6 +16,7 @@ const Navbar = () => {
     const logoutHandler = () => {
         logout()
             .then(result => {
+                localStorage.removeItem('tastyFood-user-token');
                 Swal.fire({
                     position: "top-center",
                     icon: "success",

@@ -7,9 +7,6 @@ import AuthProvider from './provider/AuthProvider.jsx'
 import '@smastrom/react-rating/style.css'
 import { HelmetProvider } from 'react-helmet-async'
 import {
-  useQuery,
-  useMutation,
-  useQueryClient,
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
