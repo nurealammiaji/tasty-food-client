@@ -2,23 +2,25 @@ import { PiHeart, PiListBold, PiShoppingCart, PiSignIn, PiSignOut } from "react-
 import logo from "/tasty-food-logo.png";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
-import { ToastContainer, toast } from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
 import { AuthContext } from '../../provider/AuthProvider';
 import useCart from "../../hooks/useCart";
 import Swal from "sweetalert2";
+import useAdmin from "../../hooks/useAdmin";
 
 const Navbar = () => {
 
     const { user, logout } = useContext(AuthContext);
-    const [ cart ] = useCart();
+    const [cart] = useCart();
+    const [admin] = useAdmin();
+    console.log(admin);
 
     const logoutHandler = () => {
         logout()
             .then(result => {
+                console.log(result);
                 localStorage.removeItem('tastyFood-user-token');
                 Swal.fire({
-                    position: "top-center",
+                    position: "center",
                     icon: "success",
                     title: "Logged Out !",
                     showConfirmButton: false,
@@ -32,7 +34,6 @@ const Navbar = () => {
 
     return (
         <div className="relative">
-            <ToastContainer />
             <div className="fixed z-10 font-semibold text-white bg-black shadow px-auto navbar bg-opacity-30">
                 <div className="navbar-start">
                     <details className="dropdown">
@@ -44,7 +45,12 @@ const Navbar = () => {
                             <li><Link to="/menu">Our Menu</Link></li>
                             <li><Link to="/shop">Our Shop</Link></li>
                             <li><Link to="/contact">Contact Us</Link></li>
-                            <li><Link to="/dashboard">Dashboard</Link></li>
+                            {
+                                (user) ?
+                                    (!admin) ?
+                                        <li><Link to="/dashboard/user-home">User Dashboard</Link></li> :
+                                        <li><Link to="/dashboard/admin-home">Admin Dashboard</Link></li> : null
+                            }
                         </ul>
                     </details>
                     <Link to="/">
@@ -57,7 +63,12 @@ const Navbar = () => {
                         <li><Link to="/menu">Our Menu</Link></li>
                         <li><Link to="/shop">Our Shop</Link></li>
                         <li><Link to="/contact">Contact Us</Link></li>
-                        <li><Link to="/dashboard">Dashboard</Link></li>
+                        {
+                            (user) ?
+                                (!admin) ?
+                                    <li><Link to="/dashboard/user-home">User Dashboard</Link></li> :
+                                    <li><Link to="/dashboard/admin-home">Admin Dashboard</Link></li> : null
+                        }
                     </ul>
                 </div>
                 <div className="navbar-end [&>*]:ml-1 hover:[&>*]:text-red-600">
@@ -71,17 +82,20 @@ const Navbar = () => {
                             </span>
                         </label>
                     </div> */}
-                    <div className="mr-3 md:mr-5 drawer-content tooltip" data-tip="Cart">
-                        <label htmlFor="cart-drawer" className="relative drawer-button">
-                            <PiShoppingCart className="text-xl md:text-2xl" />
-                            <span className="absolute left-0 p-1 top-2 badge badge-primary badge-sm">
-                                {
-                                    (user && cart) &&
-                                    cart?.length || 0
-                                }
-                            </span>
-                        </label>
-                    </div>
+                    {
+                        
+                        <div className="mr-3 md:mr-5 drawer-content tooltip" data-tip="Cart">
+                            <Link to="/dashboard/my-cart">
+                                <PiShoppingCart className="text-xl md:text-2xl" />
+                                <span className="absolute left-4 p-1 bottom-4 badge badge-primary badge-sm">
+                                    {
+                                        (user && cart) &&
+                                        cart?.length || 0
+                                    }
+                                </span>
+                            </Link>
+                        </div>
+                    }
                     {(user) ?
                         <>
                             <div className="mr-1 avatar tooltip" data-tip={`${user.displayName}`}>

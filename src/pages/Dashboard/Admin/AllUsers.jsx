@@ -1,16 +1,13 @@
 import { Helmet } from "react-helmet-async";
 import SectionHeading from "../../../components/SectionHeading/SectionHeading";
-import { useLoaderData } from "react-router-dom";
 import User from "./User";
 import useUser from "../../../hooks/useUser";
 
 
 const AllUsers = () => {
 
-    // const users = useLoaderData();
+    const [users] = useUser();
 
-    const [users, refetch] = useUser();
-    
     return (
         <div className="bg-base-200">
             <Helmet>

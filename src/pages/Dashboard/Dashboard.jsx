@@ -1,10 +1,14 @@
 import { Helmet } from "react-helmet-async";
-import { PiArrowLeftBold, PiArrowRightBold, PiBookBold, PiEnvelopeSimpleBold, PiForkKnifeBold, PiHandbagBold, PiHouseBold, PiListBulletsBold, PiTextAlignJustifyBold, PiUsersBold } from "react-icons/pi";
+import { PiArrowLeftBold, PiArrowRightBold, PiBookBold, PiCalendarBold, PiCalendarCheckBold, PiEnvelopeSimpleBold, PiForkKnifeBold, PiHandbagBold, PiHouseBold, PiListBulletsBold, PiQuotesBold, PiShoppingCartBold, PiTextAlignJustifyBold, PiUsersBold, PiUsersThreeBold, PiWalletBold } from "react-icons/pi";
 import { NavLink, Outlet } from "react-router-dom";
 import logo from "/tasty-food-logo.png";
-
+import useAdmin from "../../hooks/useAdmin";
 
 const Dashboard = () => {
+
+    const [admin] = useAdmin();
+    console.log(admin);
+
     return (
         <div className="w-screen">
             <Helmet>
@@ -27,16 +31,34 @@ const Dashboard = () => {
                                 <img src={logo} className="w-6/12 mx-auto" alt="" />
                             </figure>
                         </div>
-                        <li className="mt-10 hover:text-white"><NavLink to="/dashboard/admin-home"><PiHouseBold /> Admin Home</NavLink></li>
-                        <li className="hover:text-white"><NavLink to="/dashboard/add-items"><PiForkKnifeBold /> Add Items</NavLink></li>
-                        <li className="hover:text-white"><NavLink to="/dashboard/manage-items"><PiListBulletsBold /> Manage Items</NavLink></li>
-                        <li className="hover:text-white"><NavLink to="/dashboard/manage-bookings"><PiBookBold /> Manage Bookings</NavLink></li>
-                        <li className="hover:text-white"><NavLink to="/dashboard/all-users"><PiUsersBold /> All Users</NavLink></li>
-                        <div className="divider"></div>
-                        <li className="hover:text-white"><NavLink to="/"><PiHouseBold /> Home</NavLink></li>
-                        <li className="hover:text-white"><NavLink to="/menu"><PiTextAlignJustifyBold /> Menu</NavLink></li>
-                        <li className="hover:text-white"><NavLink to="/shop"><PiHandbagBold /> Shop</NavLink></li>
-                        <li className="hover:text-white"><NavLink to="/contact"><PiEnvelopeSimpleBold /> Contact</NavLink></li>
+                        {
+                            (admin) ?
+                                <>
+                                    <li className="mt-10 hover:text-white"><NavLink to="/dashboard/admin-home"><PiHouseBold /> Admin Home</NavLink></li>
+                                    <li className="hover:text-white"><NavLink to="/dashboard/add-items"><PiForkKnifeBold /> Add Items</NavLink></li>
+                                    <li className="hover:text-white"><NavLink to="/dashboard/manage-items"><PiListBulletsBold /> Manage Items</NavLink></li>
+                                    <li className="hover:text-white"><NavLink to="/dashboard/manage-bookings"><PiBookBold /> Manage Bookings</NavLink></li>
+                                    <li className="hover:text-white"><NavLink to="/dashboard/all-users"><PiUsersThreeBold /> All Users</NavLink></li>
+                                    <div className="divider"></div>
+                                    <li className="hover:text-white"><NavLink to="/"><PiHouseBold /> Home</NavLink></li>
+                                    <li className="hover:text-white"><NavLink to="/menu"><PiTextAlignJustifyBold /> Menu</NavLink></li>
+                                    <li className="hover:text-white"><NavLink to="/shop"><PiHandbagBold /> Shop</NavLink></li>
+                                    <li className="hover:text-white"><NavLink to="/contact"><PiEnvelopeSimpleBold /> Contact</NavLink></li>
+                                </> :
+                                <>
+                                    <li className="mt-10 hover:text-white"><NavLink to="/dashboard/user-home"><PiHouseBold /> User Home</NavLink></li>
+                                    <li className="hover:text-white"><NavLink to="/dashboard/reservation"><PiCalendarBold /> Reservation</NavLink></li>
+                                    <li className="hover:text-white"><NavLink to="/dashboard/payment-history"><PiWalletBold /> Payment History</NavLink></li>
+                                    <li className="hover:text-white"><NavLink to="/dashboard/my-cart"><PiShoppingCartBold /> My Cart</NavLink></li>
+                                    <li className="hover:text-white"><NavLink to="/dashboard/add-review"><PiQuotesBold/> Add Review</NavLink></li>
+                                    <li className="hover:text-white"><NavLink to="/dashboard/my-bookings"><PiCalendarCheckBold /> My Bookings</NavLink></li>
+                                    <div className="divider"></div>
+                                    <li className="hover:text-white"><NavLink to="/"><PiHouseBold /> Home</NavLink></li>
+                                    <li className="hover:text-white"><NavLink to="/menu"><PiTextAlignJustifyBold /> Menu</NavLink></li>
+                                    <li className="hover:text-white"><NavLink to="/shop"><PiHandbagBold /> Shop</NavLink></li>
+                                    <li className="hover:text-white"><NavLink to="/contact"><PiEnvelopeSimpleBold /> Contact</NavLink></li>
+                                </>
+                        }
                     </ul>
                 </div>
             </div>

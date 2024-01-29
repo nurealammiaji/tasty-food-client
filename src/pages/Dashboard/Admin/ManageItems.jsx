@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import SectionHeading from '../../../components/SectionHeading/SectionHeading';
 import useMenu from '../../../hooks/useMenu';
-import Item from "./Item";
+import TableRow from "../../../components/TableRow/TableRow";
 
 
 const ManageItems = () => {
@@ -43,7 +43,7 @@ const ManageItems = () => {
                                 {/* row 1 */}
                                 {
                                     (menu) ?
-                                        menu.map(item => <Item key={item._id} item={item}></Item>) :
+                                        menu.map(item => <TableRow key={item._id} item={item}></TableRow>) :
                                         <>
                                             <tr className="w-screen mx-auto my-auto text-center">
                                                 <td className="flex items-center justify-center gap-3 my-5 font-semibold text-red-600">

@@ -36,7 +36,6 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, currentUser => {
             setLoading(true);
             setUser(currentUser);
-            setLoading(false);
             //JWT Adding
             if (currentUser) {
                 fetch(`http://localhost:5000/jwt/${currentUser.email}`)
@@ -45,10 +44,14 @@ const AuthProvider = ({ children }) => {
                     const token = data.token;
                     console.log(token);
                     localStorage.setItem('tastyFood-user-token', token);
+                    setLoading(false);
                 })
                 .catch(error => {
                     console.log(error);
                 })
+            }
+            else {
+                setLoading(false);
             }
             // User Creation
             if (currentUser?.displayName) {

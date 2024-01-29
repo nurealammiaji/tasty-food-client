@@ -5,7 +5,6 @@ import { AuthContext } from '../../provider/AuthProvider';
 import bg from "../../assets/others/authentication.png";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { PiFacebookLogoBold, PiFacebookLogoFill, PiGithubLogoBold, PiGithubLogoFill, PiGoogleLogo, PiGoogleLogoBold, PiGoogleLogoFill } from "react-icons/pi";
-import { ToastContainer, toast } from 'react-toastify';
 import Swal from "sweetalert2";
 import { updateProfile } from "firebase/auth";
 
@@ -58,7 +57,7 @@ const Register = () => {
                     })
                 })
                 Swal.fire({
-                    position: "top-center",
+                    position: "center",
                     icon: "success",
                     title: "Registered Successfully !",
                     showConfirmButton: false,
@@ -69,7 +68,7 @@ const Register = () => {
             .catch(error => {
                 console.log(error);
                 Swal.fire({
-                    position: "top-center",
+                    position: "center",
                     icon: "error",
                     title: `${error.message.slice(9,)}`,
                     showConfirmButton: false,
@@ -83,7 +82,7 @@ const Register = () => {
             .then(result => {
                 console.log(result);
                 Swal.fire({
-                    position: "top-center",
+                    position: "center",
                     icon: "success",
                     title: "Registered Successfully !",
                     showConfirmButton: false,
@@ -94,7 +93,7 @@ const Register = () => {
             .catch(error => {
                 console.log(error);
                 Swal.fire({
-                    position: "top-center",
+                    position: "center",
                     icon: "success",
                     title: `${error.message.slice(9,)}`,
                     showConfirmButton: false,
@@ -105,7 +104,6 @@ const Register = () => {
 
     return (
         <div>
-            <ToastContainer />
             <Helmet>
                 <title>Register || Tasty Food</title>
             </Helmet>

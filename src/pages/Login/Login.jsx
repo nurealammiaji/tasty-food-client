@@ -7,6 +7,7 @@ import { loadCaptchaEnginge, LoadCanvasTemplate, validateCaptcha } from 'react-s
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { PiChecksBold, PiFacebookLogoBold, PiGithubLogoBold, PiGoogleLogoBold } from "react-icons/pi";
 import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Swal from "sweetalert2";
 
 const Login = () => {
@@ -50,7 +51,7 @@ const Login = () => {
         console.log(result);
         if (result) {
           Swal.fire({
-            position: "top-center",
+            position: "center",
             icon: "success",
             title: "Logged in Successful !",
             showConfirmButton: false,
@@ -62,7 +63,7 @@ const Login = () => {
       .catch(error => {
         console.log(error);
         Swal.fire({
-          position: "top-center",
+          position: "center",
           icon: "error",
           title: `${error.message.slice(9,)}`,
           showConfirmButton: false,
@@ -77,7 +78,7 @@ const Login = () => {
         console.log(result);
         if (result) {
           Swal.fire({
-            position: "top-center",
+            position: "center",
             icon: "success",
             title: "Logged in Successful !",
             showConfirmButton: false,
@@ -89,7 +90,7 @@ const Login = () => {
       .catch(error => {
         console.log(error);
         Swal.fire({
-          position: "top-center",
+          position: "center",
           icon: "error",
           title: `${error.message.slice(9,)}`,
           showConfirmButton: false,

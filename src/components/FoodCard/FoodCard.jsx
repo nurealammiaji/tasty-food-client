@@ -35,7 +35,7 @@ const FoodCard = ({ item }) => {
                 .then(res => res.json())
                 .then(data => {
                     Swal.fire({
-                        position: "top-center",
+                        position: "center",
                         icon: "success",
                         title: "Item has been added",
                         showConfirmButton: false,

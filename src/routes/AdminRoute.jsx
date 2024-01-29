@@ -1,15 +1,17 @@
+import { Navigate, useLocation } from "react-router-dom";
+import useAdmin from "../hooks/useAdmin";
+import Swal from "sweetalert2";
 import { useContext } from "react";
 import { AuthContext } from "../provider/AuthProvider";
-import { Navigate, useLocation } from "react-router-dom";
-import Swal from "sweetalert2";
 
-const Private = ({ children }) => {
+const AdminRoute = ({ children }) => {
 
-    const { user, loading } = useContext(AuthContext);
+    const {user, loading} = useContext(AuthContext);
+    const [admin, adminLoading] = useAdmin();
 
     const location = useLocation();
 
-    if (loading) {
+    if (loading && adminLoading) {
         return <>
             <div className="w-screen mx-auto my-auto text-center">
                 <br /><br />
@@ -22,21 +24,21 @@ const Private = ({ children }) => {
         </>
     }
 
-    if (!user) {
+    if (!admin) {
         Swal.fire({
             position: "center",
-            icon: "warning",
-            title: "Please Login !!",
+            icon: "error",
+            title: "Access Denied !!",
             showConfirmButton: false,
             timer: 1500
-        })
+        });
     }
 
-    if (user) {
+    if (user && admin) {
         return children;
     }
 
-    return <Navigate to="/login" state={{ from: location }} replace ></Navigate>
+    return <Navigate to="/" state={{ from: location }} replace></Navigate>
 };
 
-export default Private;
+export default AdminRoute;

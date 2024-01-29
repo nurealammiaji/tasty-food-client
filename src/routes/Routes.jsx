@@ -16,6 +16,12 @@ import ManageBookings from '../pages/Dashboard/Admin/ManageBookings';
 import AllUsers from '../pages/Dashboard/Admin/AllUsers';
 import MyCart from '../pages/Dashboard/User/MyCart';
 import UpdateItem from "../pages/Dashboard/Admin/UpdateItem";
+import UserHome from "../pages/Dashboard/User/UserHome";
+import Reservation from "../pages/Dashboard/User/Reservation";
+import PaymentHistory from "../pages/Dashboard/User/PaymentHistory";
+import AddReview from "../pages/Dashboard/User/AddReview";
+import MyBookings from '../pages/Dashboard/User/MyBookings';
+import AdminRoute from "./AdminRoute";
 
 
 const Routes = createBrowserRouter([
@@ -60,32 +66,52 @@ const Routes = createBrowserRouter([
         children: [
             {
                 path: "admin-home",
-                element: <AdminHome></AdminHome>
+                element: <AdminRoute><AdminHome></AdminHome></AdminRoute>
             },
             {
                 path: "add-items",
-                element: <AddItems></AddItems>
+                element: <AdminRoute><AddItems></AddItems></AdminRoute>
             },
             {
                 path: "manage-items",
-                element: <ManageItems></ManageItems>
+                element: <AdminRoute><ManageItems></ManageItems></AdminRoute>
             },
             {
                 path: "manage-items/:id",
-                element: <UpdateItem></UpdateItem>,
+                element: <AdminRoute><UpdateItem></UpdateItem></AdminRoute>,
                 loader: ({ params }) => fetch(`http://localhost:5000/menus/${params.id}`)
             },
             {
                 path: "manage-bookings",
-                element: <ManageBookings></ManageBookings>
+                element: <AdminRoute><ManageBookings></ManageBookings></AdminRoute>
             },
             {
                 path: "all-users",
-                element: <AllUsers></AllUsers>,
+                element: <AdminRoute><AllUsers></AllUsers></AdminRoute>
             },
             {
-                path: "cart",
+                path: "user-home",
+                element: <UserHome></UserHome>
+            },
+            {
+                path: "reservation",
+                element: <Reservation></Reservation>
+            },
+            {
+                path: "payment-history",
+                element: <PaymentHistory></PaymentHistory>
+            },
+            {
+                path: "my-cart",
                 element: <MyCart></MyCart>
+            },
+            {
+                path: "add-review",
+                element: <AddReview></AddReview>
+            },
+            {
+                path: "my-bookings",
+                element: <MyBookings></MyBookings>
             }
         ]
     }
