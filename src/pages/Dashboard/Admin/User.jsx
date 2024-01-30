@@ -24,6 +24,7 @@ const User = ({ user }) => {
                 fetch(`http://localhost:5000/users/${_id}`, {
                     method: "PATCH",
                     headers: {
+                        authorization: `Bearer ${localStorage.getItem('tastyFood-user-token')}`,
                         'content-type': 'application/json'
                     },
                     body: JSON.stringify(userRole)
@@ -65,6 +66,7 @@ const User = ({ user }) => {
                 fetch(`http://localhost:5000/users/${_id}`, {
                     method: "PATCH",
                     headers: {
+                        authorization: `Bearer ${localStorage.getItem('tastyFood-user-token')}`,
                         'content-type': 'application/json'
                     },
                     body: JSON.stringify(userRole)

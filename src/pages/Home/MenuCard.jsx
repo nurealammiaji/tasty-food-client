@@ -10,35 +10,6 @@ import 'swiper/css';
 import 'swiper/css/pagination';
 
 const MenuCard = () => {
-
-    const [dishes, setDishes] = useState(null);
-    const [soups, setSoups] = useState(null);
-    const [salads, setSalads] = useState(null);
-    const [pizzas, setPizzas] = useState(null);
-    const [desserts, setDesserts] = useState(null);
-    const [drinks, setDrinks] = useState(null);
-
-    useEffect(() => {
-        fetch('menu.json')
-            .then(res => res.json())
-            .then(data => setDishes(data))
-    }, [])
-
-    useEffect(() => {
-        if (dishes) {
-            const salad = dishes.filter(dish => dish.category === "salad");
-            setSalads(salad);
-            const pizza = dishes.filter(dish => dish.category === "pizza");
-            setPizzas(pizza);
-            const soup = dishes.filter(dish => dish.category === "soup");
-            setSoups(soup);
-            const dessert = dishes.filter(dish => dish.category === "dessert");
-            setDesserts(dessert);
-            const drink = dishes.filter(dish => dish.category === "drink");
-            setDrinks(drink);
-        }
-    }, [dishes])
-
     return (
         <div className="w-11/12 mx-auto">
             <Swiper
@@ -66,8 +37,7 @@ const MenuCard = () => {
                     },
                 }}
                 modules={[Pagination]}
-                className="mySwiper"
-            >
+                className="mySwiper" >
                 <SwiperSlide>
                     <div className="hero">
                         <img src={slide1} alt="" />

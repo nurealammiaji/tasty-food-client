@@ -47,7 +47,7 @@ const Navbar = () => {
                             <li><Link to="/contact">Contact Us</Link></li>
                             {
                                 (user) ?
-                                    (!admin) ?
+                                    (user && !admin) ?
                                         <li><Link to="/dashboard/user-home">User Dashboard</Link></li> :
                                         <li><Link to="/dashboard/admin-home">Admin Dashboard</Link></li> : null
                             }
@@ -65,7 +65,7 @@ const Navbar = () => {
                         <li><Link to="/contact">Contact Us</Link></li>
                         {
                             (user) ?
-                                (!admin) ?
+                                (user && !admin) ?
                                     <li><Link to="/dashboard/user-home">User Dashboard</Link></li> :
                                     <li><Link to="/dashboard/admin-home">Admin Dashboard</Link></li> : null
                         }
@@ -83,11 +83,10 @@ const Navbar = () => {
                         </label>
                     </div> */}
                     {
-                        
                         <div className="mr-3 md:mr-5 drawer-content tooltip" data-tip="Cart">
                             <Link to="/dashboard/my-cart">
                                 <PiShoppingCart className="text-xl md:text-2xl" />
-                                <span className="absolute left-4 p-1 bottom-4 badge badge-primary badge-sm">
+                                <span className="absolute p-1 left-4 bottom-4 badge badge-primary badge-sm">
                                     {
                                         (user && cart) &&
                                         cart?.length || 0

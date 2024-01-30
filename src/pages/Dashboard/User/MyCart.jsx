@@ -1,7 +1,7 @@
 import { Helmet } from 'react-helmet-async';
 import SectionHeading from '../../../components/SectionHeading/SectionHeading';
 import useCart from '../../../hooks/useCart';
-import TableRow from '../../../components/TableRow/TableRow';
+import Cart from './Cart';
 
 const MyCart = () => {
 
@@ -40,7 +40,7 @@ const MyCart = () => {
                                     {/* row 1 */}
                                     {
                                         (cart) ?
-                                            cart.map(item => <TableRow key={item._id} item={item}></TableRow>) :
+                                            cart.map(item => <Cart key={item._id} item={item}></Cart>) :
                                             <>
                                                 <tr className="w-screen mx-auto my-auto text-center">
                                                     <td className="flex items-center justify-center gap-3 my-5 font-semibold text-red-600">

@@ -1,7 +1,7 @@
 import { PiNotePencilBold, PiTrashBold } from "react-icons/pi";
 import { Link } from "react-router-dom";
 
-const TableRow = ({ item }) => {
+const Cart = ({ item }) => {
 
     const { _id, name, recipe, image, category, price } = item;
 
@@ -37,4 +37,4 @@ const TableRow = ({ item }) => {
     );
 };
 
-export default TableRow;
+export default Cart;
