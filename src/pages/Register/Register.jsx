@@ -43,7 +43,7 @@ const Register = () => {
                 .then(result => {
                     console.log(result);
                     // User Creation
-                    fetch('http://localhost:5000/users', {
+                    fetch('https://tasty-food-server-bd.vercel.app/users', {
                         method: "POST",
                         headers: {
                             'content-type': 'application/json'

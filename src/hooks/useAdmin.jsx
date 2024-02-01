@@ -10,7 +10,7 @@ const useAdmin = () => {
         queryKey: ['users', 'admin', user, user?.email],
         enabled: !loading,
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/users/admin/${user?.email}`, {
+            const res = await fetch(`https://tasty-food-server-bd.vercel.app/users/admin/${user?.email}`, {
                 headers: {
                     authorization: `Bearer ${localStorage.getItem("tastyFood-user-token")}`
                 }

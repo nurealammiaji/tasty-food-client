@@ -21,7 +21,7 @@ const User = ({ user }) => {
                 const userRole = {
                     role: "admin"
                 };
-                fetch(`http://localhost:5000/users/${_id}`, {
+                fetch(`https://tasty-food-server-bd.vercel.app/users/${_id}`, {
                     method: "PATCH",
                     headers: {
                         authorization: `Bearer ${localStorage.getItem('tastyFood-user-token')}`,
@@ -63,7 +63,7 @@ const User = ({ user }) => {
                 const userRole = {
                     role: "user"
                 };
-                fetch(`http://localhost:5000/users/${_id}`, {
+                fetch(`https://tasty-food-server-bd.vercel.app/users/${_id}`, {
                     method: "PATCH",
                     headers: {
                         authorization: `Bearer ${localStorage.getItem('tastyFood-user-token')}`,
@@ -102,7 +102,7 @@ const User = ({ user }) => {
             confirmButtonText: "Yes"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/users/${_id}`, {
+                fetch(`https://tasty-food-server-bd.vercel.app/users/${_id}`, {
                     method: "DELETE"
                 })
                     .then(result => {

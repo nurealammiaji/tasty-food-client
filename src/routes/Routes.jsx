@@ -80,7 +80,7 @@ const Routes = createBrowserRouter([
             {
                 path: "manage-items/:id",
                 element: <AdminRoute><UpdateItem></UpdateItem></AdminRoute>,
-                loader: ({ params }) => fetch(`http://localhost:5000/menus/${params.id}`)
+                loader: ({ params }) => fetch(`https://tasty-food-server-bd.vercel.app/menus/${params.id}`)
             },
             {
                 path: "manage-bookings",

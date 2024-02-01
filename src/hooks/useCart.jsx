@@ -9,7 +9,7 @@ const useCart = () => {
     const { refetch, data: cart = [] } = useQuery({
         queryKey: ['carts', user, user?.email, localStorage],
         queryFn: async () => {
-            const res = await fetch(`http://localhost:5000/carts?email=${user?.email}`, {
+            const res = await fetch(`https://tasty-food-server-bd.vercel.app/carts?email=${user?.email}`, {
                 headers: {
                     authorization: `Bearer ${localStorage.getItem('tastyFood-user-token')}`
                 }

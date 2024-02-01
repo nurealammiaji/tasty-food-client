@@ -38,7 +38,7 @@ const AuthProvider = ({ children }) => {
             setUser(currentUser);
             //JWT Adding
             if (currentUser) {
-                fetch(`http://localhost:5000/jwt/${currentUser.email}`)
+                fetch(`https://tasty-food-server-bd.vercel.app/jwt/${currentUser.email}`)
                 .then(res => res.json())
                 .then(data => {
                     const token = data.token;
@@ -61,7 +61,7 @@ const AuthProvider = ({ children }) => {
                     image: currentUser.photoURL,
                     role: "user"
                 }
-                fetch('http://localhost:5000/users', {
+                fetch('https://tasty-food-server-bd.vercel.app/users', {
                     method: "POST",
                     headers: {
                         'content-type': 'application/json'
