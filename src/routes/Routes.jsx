@@ -22,6 +22,7 @@ import PaymentHistory from "../pages/Dashboard/User/PaymentHistory";
 import AddReview from "../pages/Dashboard/User/AddReview";
 import MyBookings from '../pages/Dashboard/User/MyBookings';
 import AdminRoute from "./AdminRoute";
+import Payment from "../pages/Dashboard/User/Payment";
 
 
 const Routes = createBrowserRouter([
@@ -96,6 +97,10 @@ const Routes = createBrowserRouter([
             {
                 path: "reservation",
                 element: <Reservation></Reservation>
+            },
+            {
+                path: "payment",
+                element: <Payment></Payment>
             },
             {
                 path: "payment-history",

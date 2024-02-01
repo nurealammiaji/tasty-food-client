@@ -6,6 +6,8 @@ import Cart from './Cart';
 const MyCart = () => {
 
     const [cart] = useCart();
+    const totalCost = cart?.reduce((sum, item) => item.price + sum, 0);
+    console.log(totalCost);
 
     return (
         <div>
@@ -17,13 +19,19 @@ const MyCart = () => {
                     <SectionHeading subHeading={"Hurry Up"} heading={"Manage All Items"} width={'w-8/12 md:w-6/12'}></SectionHeading>
                     <br /><br />
                     <div className="w-full lg:w-[600px] xl:w-[992px] bg-white p-5">
-                        <div>
+                        <br />
+                        <div className='flex justify-between items-center'>
                             {
                                 (cart) &&
                                 <h3 className="text-2xl">Total Items: {cart.length}</h3>
                             }
+                                                        {
+                                (cart) &&
+                                <h3 className="text-2xl">Total Price: ${totalCost}</h3>
+                            }
+                            <button className='btn bg-[#D1A054] text-white'>Pay</button>
                         </div>
-                        <br />
+                        <br /><br />
                         <div className="overflow-x-auto rounded-t-lg">
                             <table className="table">
                                 {/* head */}
